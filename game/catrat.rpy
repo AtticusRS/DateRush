@@ -3,6 +3,7 @@
 #Probably should show the Rat here once we get the image (on the left)
 
 label catrat:
+    $ time - 2
     t "Well, would you look at that!"
     t "It's a rat in an alley way... how queer!"
     t "Oh? It seems that the rat has a visitor... that is a cat?"
@@ -30,6 +31,8 @@ label catrat:
             r "Sqeuak squeak!!!"
             t "This, I can't help but admire! It is truly adorable."
             t "Doesn't their love remind you of something? Perhaps your own pursuit of a love interest? Hm?"
+            $ time + 10
+            "You feel empowered on your quest to meet Norman! Almost like you suddenly have more time! (plus 10 minutes)"
             jump crimealley
 
 return
