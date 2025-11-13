@@ -9,12 +9,9 @@ label norman:
         "Continue down the street":
             t "The obvious choice."
             jump continuestreet
-        
-        #No taxi in the twine timeline, yes or no taxi?
-
         "Get a taxi":
             t "The timely choice. You pull out your phone and call a Ewber, although the one in your price range is...defiently full of character."
-            jump norman
+            jump normantaxi
         "Investigate the nearby alley way":
             t "You don't see anything exactly remarkable. Cars rush down the road as you stand on the cracked pavement. You really should get moving now."
             jump crimealley
@@ -52,7 +49,7 @@ label crimealley:
 
 label normanbar:
     $ goneintobar = True
-    $ time - 20
+    $ time - 25
     t "So, you're in the bar."
     t "You might as well have a drink"
     menu:
@@ -67,6 +64,10 @@ label normanbar:
             t "That's... an option too."
             "You then drank yourself into oblivion. Hopefully you're of drinking age."
             jump start
+
+#This is the route where you take the taxi
+
+label normantaxi:
 
 
 #This is the route where you continue down the street

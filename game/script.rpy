@@ -22,7 +22,7 @@ image cafe = "cafe.png"
 image bathroom = "bathroom.png"
 
 #General variables!
-default time = 20
+default time = 25
 default datednarrator = False
 default datedgunwick = False
 default datednorman = False
@@ -48,7 +48,7 @@ label start:
     default williamdemand = False
 
     #General variable that resets when the game resests
-    $ time = 20
+    $ time = 25
 
     #Very crude method of determining how many dates the player has been on
     #Please recommend any smarter methods you may come up with
