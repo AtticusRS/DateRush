@@ -78,8 +78,7 @@ screen william_timer:
     #^This is a timer I peeled directly off of a video
     #It's supposed to send the player to the next description of a building when the timer runs out
 
-    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at Alpha_Dissolve
-    #^This is a visual bar for the timer, which I also ripped off the same video
+
 
 label limominigame:
 
@@ -90,6 +89,7 @@ label limominigame:
         "You will have five seconds to determine if the driver is passing the correct building- clicking will begin the minigame sequence"
         $ firsttimewithtimer = False
     else:
+        t "The driver moved on to the next building!"
         pass
     $ williamtimed = 5
     $ timer_range = 5
@@ -105,6 +105,7 @@ label limominigame:
             jump limominigame2
     
 label limominigame2:
+    t "The driver moved on to the next building!"
     $ time - 1
     $ williamtimed = 5
     $ timer_range = 5
@@ -119,6 +120,7 @@ label limominigame2:
             jump limominigame3
 
 label limominigame3:
+    t "The driver moved on to the next building!"
     $ time - 1
     $ williamtimed = 5
     $ timer_range = 5
