@@ -74,7 +74,7 @@ label williamlimo:
 #Trying to make a timed minigame here that is meant to waste the player's time
 
 screen william_timer:
-    timer 0.01 repeat True action If(williamtimed > 0, true=SetVariable('williamtimed', williamtimed - 0.01), false=SetVariable('time', time - 5), [Hide('countdown'), Jump(timer_jump)])
+    timer 0.01 repeat True action If(williamtimed > 0, true=SetVariable('williamtimed', williamtimed - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
     #^This is a timer I peeled directly off of a video
     #It's supposed to send the player to the next description of a building when the timer runs out
 
@@ -82,6 +82,7 @@ label limominigame:
 
     #The if-statement here ensures that the player only gets the tutorial once- and that is when they start the minigame
 
+    $ time - 1
     if firsttimewithtimer is True:
         "You will have five seconds to determine if the driver is passing the correct building- clicking will begin the minigame sequence"
     else:
@@ -100,6 +101,7 @@ label limominigame:
             jump limominigame2
     
 label limominigame2:
+    $ time - 1
     $ williamtimed = 5
     $ timer_jump = 'limominigame3'
     show screen william_timer
@@ -112,6 +114,7 @@ label limominigame2:
             jump limominigame3
 
 label limominigame3:
+    $ time - 1
     $ williamtimed = 5
     $ timer_jump = 'limominigame'
     show screen william_timer
