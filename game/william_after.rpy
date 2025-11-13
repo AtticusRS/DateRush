@@ -78,6 +78,9 @@ screen william_timer:
     #^This is a timer I peeled directly off of a video
     #It's supposed to send the player to the next description of a building when the timer runs out
 
+    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve
+    #^This is a visual bar for the timer, which I also ripped off the same video
+
 label limominigame:
 
     #The if-statement here ensures that the player only gets the tutorial once- and that is when they start the minigame
@@ -85,10 +88,11 @@ label limominigame:
     $ time - 1
     if firsttimewithtimer is True:
         "You will have five seconds to determine if the driver is passing the correct building- clicking will begin the minigame sequence"
-    else:
         $ firsttimewithtimer = False
+    else:
         pass
     $ williamtimed = 5
+    $ timer_range = 5
     $ timer_jump = 'limominigame2'
     show screen william_timer
     menu:
@@ -103,6 +107,7 @@ label limominigame:
 label limominigame2:
     $ time - 1
     $ williamtimed = 5
+    $ timer_range = 5
     $ timer_jump = 'limominigame3'
     show screen william_timer
     menu:
@@ -116,6 +121,7 @@ label limominigame2:
 label limominigame3:
     $ time - 1
     $ williamtimed = 5
+    $ timer_range = 5
     $ timer_jump = 'limominigame'
     show screen william_timer
     menu:

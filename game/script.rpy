@@ -51,6 +51,7 @@ label start:
     default williamdemand = False
     default williamtimed = 0
     default timer_jump = 0
+    default timer_range = 0
     default firsttimewithtimer = True
 
     #General variable that resets when the game resests
