@@ -49,6 +49,9 @@ label start:
 
     #William's variable that reset everytime the game resests
     default williamdemand = False
+    default williamtimed = 0
+    default timer_jump = 0
+    default firsttimewithtimer = True
 
     #General variable that resets when the game resests
     $ time = 25
