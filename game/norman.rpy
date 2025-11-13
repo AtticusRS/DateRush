@@ -88,15 +88,34 @@ label normantaxi:
             pass
     menu:
         "How much will the fare be?":
-            "The taxi driver seems to perk up at the word 'fare'"
+            "The taxi driver seems to perk up at the word 'fare', but alas no verbal response is given"
             t "This is going to take a minute."
-            pass
+            jump normantaxifare
         "I will NOT be paying by the way":
             t "You imbecile!"
             "In a flash, the driver kicks you out of the car"
             t "That was impressive... and hopefully that taught you a lesson!"
             t "Now we have to live with the consequences, and find some other way to get to Norman on time!"
             jump norman
+    
+label normantaxifare:
+    menu:
+        "Will it be $5?" if norman5ask == False:
+            "No response"
+            t "The air is exceptionally cold, I can just feel that they didn't like to hear you ask that."
+            jump normantaxifare
+        "Will it be $10?":
+            "There is a pause, but then the driver grunts in agreement"
+            t "Whew, I'm pretty sure you only have $10."
+            jump normantaxi2
+        "Will it be $15?":
+            "The driver grunts in agreeance immediately"
+            t "Uhm, do you even have $15?"
+            "A fly buzzes out of your wallet"
+            "In a flash, the driver kicks you out of the car"
+            t "That was impressive, but very unfortunate. Now how will we get to Norman on time?"
+            jump norman
+
 
 #This is the route where you continue down the street
 

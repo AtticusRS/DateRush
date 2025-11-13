@@ -44,6 +44,7 @@ label start:
     default flirtwithnarrator = False
     default goneintobar = False
     default calledtaxi = False
+    default norman5ask = False
 
     #William's variable that reset everytime the game resests
     default williamdemand = False
