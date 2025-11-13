@@ -74,7 +74,7 @@ label williamlimo:
 #Trying to make a timed minigame here that is meant to waste the player's time
 
 screen william_timer:
-    timer 0.01 repeat True action If(williamtimed > 0, true=SetVariable('williamtimed', williamtimed - 0.01), false=SetVariable('time', time - 5)[Hide('countdown'), Jump(timer_jump)])
+    timer 0.01 repeat True action If(williamtimed > 0, true=SetVariable('williamtimed', williamtimed - 0.01), false=SetVariable('time', time - 5), [Hide('countdown'), Jump(timer_jump)])
     #^This is a timer I peeled directly off of a video
     #It's supposed to send the player to the next description of a building when the timer runs out
 
