@@ -101,20 +101,33 @@ label normantaxi:
 label normantaxifare:
     menu:
         "Will it be $5?" if norman5ask == False:
+            $ time - 3
+            $ norman5ask = True
             "No response"
             t "The air is exceptionally cold, I can just feel that they didn't like to hear you ask that."
             jump normantaxifare
+        "Will if be $7?" if norman7ask == False:
+            $ time - 3
+            $ norman7ask = True
+            "No response"
+            t "I don't think that was the right answer..."
+            jump normantaxifare
         "Will it be $10?":
+            $ time - 2
             "There is a pause, but then the driver grunts in agreement"
             t "Whew, I'm pretty sure you only have $10."
             jump normantaxi2
         "Will it be $15?":
+            $ time - 5
             "The driver grunts in agreeance immediately"
             t "Uhm, do you even have $15?"
             "A fly buzzes out of your wallet"
             "In a flash, the driver kicks you out of the car"
             t "That was impressive, but very unfortunate. Now how will we get to Norman on time?"
             jump norman
+
+label normantaxi2:
+
 
 
 #This is the route where you continue down the street
