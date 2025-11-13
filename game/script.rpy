@@ -43,6 +43,7 @@ label start:
     default witnesscatrat = False
     default flirtwithnarrator = False
     default goneintobar = False
+    default calledtaxi = False
 
     #William's variable that reset everytime the game resests
     default williamdemand = False

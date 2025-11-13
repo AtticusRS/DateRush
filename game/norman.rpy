@@ -9,8 +9,8 @@ label norman:
         "Continue down the street":
             t "The obvious choice."
             jump continuestreet
-        "Get a taxi":
-            t "The timely choice. You pull out your phone and call a Ewber, although the one in your price range is...defiently full of character."
+        "Get a taxi" if calledtaxi == False:
+            t "The timely choice. You pull out your phone and call a Ewber, although the closest one is... definitely full of character."
             jump normantaxi
         "Investigate the nearby alley way":
             t "You don't see anything exactly remarkable. Cars rush down the road as you stand on the cracked pavement. You really should get moving now."
@@ -49,6 +49,9 @@ label crimealley:
 
 label normanbar:
     $ goneintobar = True
+    
+    #This immediately results in a failure
+
     $ time - 25
     t "So, you're in the bar."
     t "You might as well have a drink"
@@ -68,7 +71,32 @@ label normanbar:
 #This is the route where you take the taxi
 
 label normantaxi:
-
+    $ time - 5
+    $ calledtaxi = True
+    "The taxi finally arrives"
+    t "Thank goodness, how long was that? Were you counting? I would say 5 minutes but I don't really have any way to be sure."
+    t "Forget it, forget it. The taxi is here now, that's what matters."
+    "You get into the taxi and the taxi driver grunts as to acknowledge your presence."
+    menu:
+        "I'd like to go to the Nondiscript Cafe please?":
+            "The taxi driver grunts"
+            t "I guess that means 'okay'."
+            pass
+        "I'm in a bit of a rush, I need to go to the Nondiscript Cafe!":
+            "The taxi driver grunts"
+            t "I don't think they share the same sense of urgency..."
+            pass
+    menu:
+        "How much will the fare be?":
+            "The taxi driver seems to perk up at the word 'fare'"
+            t "This is going to take a minute."
+            pass
+        "I will NOT be paying by the way":
+            t "You imbecile!"
+            "In a flash, the driver kicks you out of the car"
+            t "That was impressive... and hopefully that taught you a lesson!"
+            t "Now we have to live with the consequences, and find some other way to get to Norman on time!"
+            jump norman
 
 #This is the route where you continue down the street
 
@@ -107,6 +135,10 @@ label continuestreet:
             t "You have [time] minutes left."
             if time <= 0:
                 t "Oh no... it seems you're out of time."
+                if goneintobar == True:
+                    t "Maybe you would've made it if you didn't go into the bar."
+                else:
+                    pass
                 t "I'm sorry, you'll have to try again."
                 jump start
             else:
