@@ -2,7 +2,7 @@
 
 label william_after:
     "You click on the finely aged man's profile"
-    "Bzzzt bzzzt"
+    "*Bzzzt bzzzt*"
     t "Hm? It seems you've recieved a text from somebody."
     t "Oh wow, the gentlemen you've chosen has already responded!"
     w "'Do you want to meet at the Ritz?'"
@@ -31,6 +31,11 @@ label william_after:
                 "Errr, actually on second thought...":
                     t "I think this will work out in the end!"
                     pass
+        "Think about it":
+            $ time - 2
+            t "Riiight, I see. Hm, I guess I can see that something like this would require lots of consideration."
+            t "Don't forget how much time you have though..."
+                pass
     
     #I think we should add obstacles here in the future, but this is the prototype as of now
 
@@ -38,7 +43,7 @@ label william_after:
     t "Wow, this place is... stunning! Maybe the limo would've made for a more appropriate entrance."
     t "Hopefully Sir William reeaaally appreciates your character! Hopefully..."
     t "Now, speaking of Mr. After, where is he?"
-    "Bzzzt bzzzt"
+    "*Bzzzt bzzzt*"
     t "I wonder if it's William..."
     w "'If you're wondering where to go, I'm up the stairs! It's impossible to miss.'"
     t "Alright! Up the stairs, into the... V.I.P. lounge?! If only we could go back in time..."
@@ -140,7 +145,7 @@ label limominigame3:
 
 label williamlimo2:
     t "You made it!"
-    "Bzzzt bzzzt"
+    "*Bzzzt bzzzt*"
     t "A text, now?"
     w "'I see a limo has pulled up, one of my limos...'"
     t "One of HIS limos??"

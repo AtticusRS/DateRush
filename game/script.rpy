@@ -132,7 +132,7 @@ label start:
     t "Four lovely options to date! Pick at your pace. No rush here friend. Take your time! All the time in the world right here. On your phone. Yep!"
 
 menu:
-    "Willaim After":
+    "William After":
         if datedwilliamafter == True:
             t "You've already dated this person, are you sure you want to continue?"
             menu:
