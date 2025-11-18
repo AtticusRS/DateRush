@@ -27,9 +27,9 @@ menu:
         jump datefailV
     "Ask about her":
         t "She leans to a side, thinking over the question."
-        v "Hm.. Well I like Snowdrops, but they wander too much for me. My friend Willaim is the same as me in that homebody personaliy."
+        v "Hm.. Well I like Squeaker, but they wander too much for me. My friend Willaim is the same as me in that homebody personaliy."
         t "Velvet pauses to look at your puzzled expression. When the realization hits her, you notice the teiflings ears perk up."
-        v "Oh! Snowdrops is a mouse that hangs around. Sweet thing."
+        v "Oh! Squeaker is a mouse that hangs around. Sweet thing."
         jump postive
 
 
