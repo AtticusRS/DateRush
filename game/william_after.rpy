@@ -84,7 +84,6 @@ screen william_timer:
     #It's supposed to send the player to the next description of a building when the timer runs out
 
 
-
 label limominigame:
 
     #The if-statement here ensures that the player only gets the tutorial once- and that is when they start the minigame
