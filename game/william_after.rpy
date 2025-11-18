@@ -151,12 +151,14 @@ label williamlimo2:
     t "Just be yourself..."
     jump start
 
-
 #This is the actual date with William
 label williamdate:
     "You walk to the bottom of the stairs, guarded by a gorgerous velvet rope and a fierce bouncer."
+    show william_neutral with dissolve:
+        xalign 0.5
+        yalign 0.0
     menu:
-        "Let me through NOW!" if williamdemand is False:
+        "Let me through NOW!!" if williamdemand is False:
             $ williamdemand = True
             "The bouncer slaps you and you snap back into reality"
             t "I think you needed that."
