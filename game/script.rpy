@@ -63,9 +63,16 @@ label start:
     default witnesscatrat = False
     default flirtwithnarrator = False
     default goneintobar = False
+    default calledtaxi = False
+    default norman5ask = False
+    default norman7ask = False
 
     #William's variable that reset everytime the game resests
     default williamdemand = False
+    default williamtimed = 0
+    default timer_jump = 0
+    default timer_range = 0
+    default firsttimewithtimer = True
 
     #General variable that resets when the game resests
     $ time = 25

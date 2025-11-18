@@ -62,10 +62,84 @@ label williamlimo:
     t "Alright 'Mr. High and Mighty', the limo should be here in about 5 minutes."
     $ time - 5
     t "Great, the limo is here! Those 5 minutes went by inexplicably fast!"
+    "The limo driver begins driving as soon as you are seated"
+    t "Awesome, this limo driver knows what's up!"
+    t "Wait, you never told the driver what the building looks like!!"
+    t "Look at your phone, we'll have to remember what it looks like and tell the driver when to stop!!"
+    "You look at your phone, the Ritz is a tall, red building with gold accents and-"
+    t "Oh no!! Your phone died! Why are you so bad at preparing for dates?"
+    t "We'll just have to guess which is the right building before the driver passes it."
+    jump limominigame
 
-    #I wonder if we can add any obstacles to the limo too, even if it doesn't matter in the end
+#Trying to make a timed minigame here that is meant to waste the player's time
 
-    t "You made it! With lots of time to spare too!"
+screen william_timer:
+    timer 0.01 repeat True action If(williamtimed > 0, true=SetVariable('williamtimed', williamtimed - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
+    #^This is a timer I peeled directly off of a video
+    #It's supposed to send the player to the next description of a building when the timer runs out
+
+
+
+label limominigame:
+
+    #The if-statement here ensures that the player only gets the tutorial once- and that is when they start the minigame
+
+    $ time - 1
+    if firsttimewithtimer is True:
+        "You will have five seconds to determine if the driver is passing the correct building- clicking will begin the minigame sequence"
+        $ firsttimewithtimer = False
+    else:
+        t "The driver moved on to the next building!"
+        pass
+    $ williamtimed = 5
+    $ timer_range = 5
+    $ timer_jump = 'limominigame2'
+    show screen william_timer
+    menu:
+        "Stop at this red building with gold accents that's... short?":
+            $ time - 5
+            t "Noo, that's wrong!"
+            jump limominigame2
+        "Next building please!":
+            $ time - 1
+            jump limominigame2
+    
+label limominigame2:
+    t "The driver moved on to the next building!"
+    $ time - 1
+    $ williamtimed = 5
+    $ timer_range = 5
+    $ timer_jump = 'limominigame3'
+    show screen william_timer
+    menu:
+        "Stop at this red building with gold accents that's... tall?":
+            t "Yes! You've found it!"
+            jump williamlimo2
+        "Next building please!":
+            $ time - 1
+            jump limominigame3
+
+label limominigame3:
+    t "The driver moved on to the next building!"
+    $ time - 1
+    $ williamtimed = 5
+    $ timer_range = 5
+    $ timer_jump = 'limominigame'
+    show screen william_timer
+    menu:
+        "Stop at this blue building with gold accents that's... tall!":
+            $ time - 5
+            t "Noo, that's wrong!"
+            jump limominigame
+        "Next building please!":
+            $ time - 1
+            t "Guess that means we'll have to circle the block..."
+            jump limominigame
+
+
+
+label williamlimo2:
+    t "You made it!"
     "Bzzzt bzzzt"
     t "A text, now?"
     w "'I see a limo has pulled up, one of my limos...'"

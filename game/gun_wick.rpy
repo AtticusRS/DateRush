@@ -4,6 +4,7 @@ label gun_wick:
     scene crimealley
     menu:
         "Look just a liiiittle further":
+            $ time - 2
             t "Why are you still looking?? Did you not hear what I said?"
             jump crimealley2
         "Return to the street":
@@ -31,9 +32,11 @@ label crimealley2:
 
     g "Uh, wow, kid. That's considerably, er, audacious of you."
     g "Are you a cop? I don't think I can fathom another individual who may perform as, er... uh, eccentric."
+    g "Just kidding, I love how bold you are!"
+    $ datedgunwick = True
+    
+    jump start
 
-    jump crimealley
-
-#I'm not yet sure where to take this, take the regins Addison!
+#I'm not yet sure where to take this
         
 return
