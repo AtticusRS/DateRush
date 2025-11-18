@@ -7,13 +7,16 @@ label norman:
             t "A bar, why?"
             jump normanbar
         "Continue down the street":
+            $ time - 2
             t "The obvious choice."
             jump continuestreet
         "Get a taxi" if calledtaxi == False:
             t "The timely choice. You pull out your phone and call a Ewber, although the closest one is... definitely full of character."
             jump normantaxi
         "Investigate the nearby alley way":
+            $ time - 2
             t "You don't see anything exactly remarkable. Cars rush down the road as you stand on the cracked pavement. You really should get moving now."
+            t "Especially because you don't have all of the time in the world..."
             jump crimealley
 
 #This is where the transition from Norman's route to Gun Wick's route begins
@@ -136,8 +139,6 @@ label normantaxifare:
 label normantaxi2:
     "The driver accepts your money and begins driving"
     t "Alright! Now we're making progress."
-    
-
 
 #This is the route where you continue down the street
 
@@ -155,7 +156,7 @@ label continuestreet:
             $ wetclothes = False
             "You go home and change... it takes a while."
             menu:
-                t "Do you think you can make it in time? Or do you want to drown your sorrows out with an ice-cold drink?"
+                t "Do you think you can make it in time? Or, do you want to give up and drown your sorrows out with an ice-cold drink?"
                 "Go to the bar...":
                     t "How dreary. Truly dissapointing. But, there's no arguing with the fat chance you're going to be incredibly late."
                     jump normanbar
@@ -188,13 +189,45 @@ label continuestreet:
                 pass
             t "Amazing! It seems you have managed to make it on time, beating the odds!"
             t "Let's meet Norman, the man of the hour!"
-            jump normandate
+            if wetclothes == True:
+                jump normandatewetclothes
+            else:
+                jump normandatenormal
 
 #This is the date with Norman!
 
-label normandate:
+label normandatewetclothes:
     $ datednorman = True
-    "Congrats, you dated Norman!"
+    n "Oh, hello!"
+    n "It's so great to see you! I love your outfit!"
+    n "I hope my apparel isn't too underwhelming..."
+    menu:
+        "Not at all!":
+            n "I appreciate that. Your reassurance means a lot to me!"
+        "What are you talking about, you're drop-dead gorgeous!":
+            n "Well... now you may be stretching it, but I can't lie- I am quite enamored by your comment..."
+            n "Thank you so much!"
+    jump start
+
+label normandatenormal:
+    $ datednorman = True
+    n "Oh, hello!"
+    n "It's so great to see you! Your attire is... stunningly unique!"
+    menu:
+        "Oh yea... lol, about that...":
+            pass
+        "Long story short...":
+            pass
+    n "No worries! I totally understand!"
+    n "You know, I actually find it really endearing that you cared more about getting here than your appearance."
+    n "I believe that says a lot of positive things about yourself."
+    menu:
+        "Thank you so much!":
+            n "Of course!"
+            pass
+        "Well you charmer!!":
+            n "Oh gosh! I'm just being polite you know!"
+            pass
     jump start
 
 return

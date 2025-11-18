@@ -6,14 +6,13 @@ label gun_wick:
         "Look just a liiiittle further":
             $ time - 2
             t "Why are you still looking?? Did you not hear what I said?"
+            t "Are you forgetting what's at stake?"
             jump crimealley2
         "Return to the street":
+            $ time - 1
             t "Smart fellow! Let's get you back to Norman."
             jump norman
-    
-#Something with the gun will happen here, probably
-#Perhaps Gun Wick should appear here (with a 'show' command), but we don't have his image files yet, so we cannot perform this action
-#I believe a slow dissolve transition here would be phenomenal and perfect for comedic effect
+
 
 label crimealley2:
     scene crimealley
