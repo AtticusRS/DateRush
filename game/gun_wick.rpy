@@ -17,6 +17,7 @@ label gun_wick:
 
 label crimealley2:
     scene crimealley
+    show gun_neutral with dissolve
     t "Oh, would you look at that, there's a sentient gun here..."
     t "In Crime Alley..."
     t "The alley way that is... reknown for its concerning rates of crime. Hence the name." 
@@ -25,7 +26,10 @@ label crimealley2:
     g "What is up with you, kid? State your business immediately!"
     menu:
         "I think I love you":
+            hide gun_neutral
+            show gun_shocked with dissolve
             t "..."
+            pass
         "Apologies good sir, I believe my gps had led me astray!":
             t "Yeea, that'll fool him..."
             jump crimealley

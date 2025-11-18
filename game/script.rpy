@@ -41,6 +41,11 @@ image william_angry = "williamafterangry.png"
 image william_happy = "williamafterhappy.png"
 image william_shocked = "williamaftershock.png"
 
+image gun_neutral = "gun_side.png"
+image gun_angry = "gun_front.png"
+image gun_shocked = "gun_tilt.png"
+image gun_happy = "gun_side_2.png"
+
 
 
 #General variables!
