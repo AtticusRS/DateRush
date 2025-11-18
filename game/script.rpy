@@ -12,6 +12,8 @@ define j = Character("Jessi")
 define w = Character("William After")
 define c = Character("Cat")
 define r = Character("Rat")
+define b = Character("Bouncer")
+define e = Character("Eavesdropper")
 
 #Defining images!
 image streetside = "streetside.png"
