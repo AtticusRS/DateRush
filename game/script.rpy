@@ -17,9 +17,29 @@ define r = Character("Rat")
 image streetside = "streetside.png"
 image streetside2 = "streetside.png"
 image crimealley = "crimealley.png"
+image gundate = "emptygun_dateroon.png"
+image outsidebar = "bar_frontoutside.png"
 image bar = "bar.png"
+image barsit = "bar_sit.png"
 image cafe = "cafe.png"
 image bathroom = "bathroom.png"
+image diner = "fancydiner.png"
+image outsidediner = "fancydiner_outside"
+image fancydinertable = "fancydiner_table"
+image incar = "inside of car.png"
+image tavern = "tavern.png"
+
+image rat = "rat_notlooking.png"
+image ratsee = "rat_look.png"
+image ratwow = "rat_SHOCKED.png"
+image ratlove = "rat_love.png"
+
+image william_neutral = "williamafter.png"
+image william_angry = "williamafterangry.png"
+image william_happy = "williamafterhappy.png"
+image william_shocked = "williamaftershock.png"
+
+
 
 #General variables!
 default time = 25
