@@ -35,7 +35,7 @@ label william_after:
             $ time - 2
             t "Riiight, I see. Hm, I guess I can see that something like this would require lots of consideration."
             t "Don't forget how much time you have though..."
-                pass
+            pass
     
     #I think we should add obstacles here in the future, but this is the prototype as of now
 
