@@ -6,17 +6,17 @@ label gun_wick:
         "Look just a liiiittle further":
             $ time - 2
             t "Why are you still looking?? Did you not hear what I said?"
+            t "Are you forgetting what's at stake?"
             jump crimealley2
         "Return to the street":
+            $ time - 1
             t "Smart fellow! Let's get you back to Norman."
             jump norman
-    
-#Something with the gun will happen here, probably
-#Perhaps Gun Wick should appear here (with a 'show' command), but we don't have his image files yet, so we cannot perform this action
-#I believe a slow dissolve transition here would be phenomenal and perfect for comedic effect
+
 
 label crimealley2:
     scene crimealley
+    show gun_neutral with dissolve
     t "Oh, would you look at that, there's a sentient gun here..."
     t "In Crime Alley..."
     t "The alley way that is... reknown for its concerning rates of crime. Hence the name." 
@@ -25,7 +25,10 @@ label crimealley2:
     g "What is up with you, kid? State your business immediately!"
     menu:
         "I think I love you":
+            hide gun_neutral
+            show gun_shocked with dissolve
             t "..."
+            pass
         "Apologies good sir, I believe my gps had led me astray!":
             t "Yeea, that'll fool him..."
             jump crimealley

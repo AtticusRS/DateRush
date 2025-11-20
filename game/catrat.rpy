@@ -32,7 +32,7 @@ label catrat:
             t "This, I can't help but admire! It is truly adorable."
             t "Doesn't their love remind you of something? Perhaps your own pursuit of a love interest? Hm?"
             $ time + 10
-            "You feel empowered on your quest to meet Norman! Almost like you suddenly have more time! (plus 10 minutes)"
+            "You feel empowered on your quest to meet Norman! Almost like you suddenly, and somehow, have more time! (plus 10 minutes)"
             jump crimealley
 
 return
