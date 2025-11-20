@@ -7,13 +7,19 @@
 define t = Character("Narrator")
 define g = Character("Gun Wick")
 define n = Character("Norman")
+
 define v = Character("Velvet")
+define o = Character("Dragon Repossesor")
+define g = Character("Reg the Goblin")
+
 define j = Character("Jessi")
+define b = Character("Bouncer")
+define e = Character("Eavesdropper")
+
 define w = Character("William After")
 define c = Character("Cat")
 define r = Character("Rat")
-define b = Character("Bouncer")
-define e = Character("Eavesdropper")
+
 
 #Defining images!
 image streetside = "streetside.png"
