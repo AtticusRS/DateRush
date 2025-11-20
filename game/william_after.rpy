@@ -98,7 +98,6 @@ label limominigame:
     $ williamtimed = 5
     $ timer_range = 5
     $ timer_jump = 'limominigame2'
-    show screen william_timer
     menu:
         "Stop at this red building with gold accents that's... short?":
             $ time - 5
@@ -114,7 +113,6 @@ label limominigame2:
     $ williamtimed = 5
     $ timer_range = 5
     $ timer_jump = 'limominigame3'
-    show screen william_timer
     menu:
         "Stop at this red building with gold accents that's... tall?":
             t "Yes! You've found it!"
@@ -129,7 +127,6 @@ label limominigame3:
     $ williamtimed = 5
     $ timer_range = 5
     $ timer_jump = 'limominigame'
-    show screen william_timer
     menu:
         "Stop at this blue building with gold accents that's... tall!":
             $ time - 5

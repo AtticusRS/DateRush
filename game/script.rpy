@@ -36,6 +36,9 @@ image ratsee = "rat_look.png"
 image ratwow = "rat_SHOCKED.png"
 image ratlove = "rat_love.png"
 
+image catsneaky = "cat_sneaky.png"
+image catflowers = "cat_flowers.png"
+
 image william_neutral = "williamafter.png"
 image william_angry = "williamafterangry.png"
 image william_happy = "williamafterhappy.png"

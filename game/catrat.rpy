@@ -4,28 +4,40 @@
 
 label catrat:
     $ time - 2
+    show rat at left
     t "Well, would you look at that!"
     t "It's a rat in an alley way... how queer!"
     t "Oh? It seems that the rat has a visitor... that is a cat?"
-
-    #Show Cat here once we get the image (on the right)
+    hide rat
+    show ratsee at left with dissolve
+    show catsneaky at right with dissolve:
+        yalign 1
     
     t "Perhaps we should turn our attention elsewhere? I'm sure we can infer how this altercation will end."
     menu:
         "Return to your original date plans":
+            $ time - 2
             jump crimealley
         "Just wait a little longer...":
             t "I see... you're going to waste precious time... again."
 
-            #Perhaps we'll have the Cat come from the right and slowly go center here
+            hide catsneaky with dissolve
+            show catsneaky at center with dissolve:
+                yalign 1
 
             t "The cat is sneaking up on the rat, surely you don't want to see the next part where-"
 
-            #Show Cat with flowers? Show shocked Rat as well?
+            hide catsneaky
+            show catflowers at center with dissolve:
+                yalign 1
+
+            hide ratsee
+            show ratwow at left with dissolve
 
             t "The cat pulls out flowers for the rat??"
 
-            #Cat and Rat hugging sprite here?
+            hide ratwow
+            show ratlove at left with dissolve
 
             c "Meow meow!!"
             r "Sqeuak squeak!!!"
