@@ -53,8 +53,6 @@ image gun_shocked = "gun_tilt.png"
 image gun_shocked2 = "gun_tilt_2.png"
 image gun_happy = "gun_side_2.png"
 
-
-
 #General variables!
 default time = 25
 default datednarrator = False
@@ -72,7 +70,7 @@ default numberofdates = 0
 label start:
     scene phone
 
-    #Norman's variables that reset everytime the game resests
+    #Norman's variables
     default wetclothes = False
     default witnesscatrat = False
     default flirtwithnarrator = False
@@ -81,12 +79,14 @@ label start:
     default norman5ask = False
     default norman7ask = False
 
-    #William's variable that reset everytime the game resests
+    #William's variables
     default williamdemand = False
+    $ williamdemand = False
     default williamtimed = 0
     default timer_jump = 0
     default timer_range = 0
     default firsttimewithtimer = True
+    $ firstimewithtimer = True
 
     #General variable that resets when the game resests
     $ time = 25
@@ -94,50 +94,58 @@ label start:
     #Very crude method of determining how many dates the player has been on
     #Please recommend any smarter methods you may come up with
 
+
     if datednarrator == True:
         $ numberofdates + 1
     else:
         pass
-    if datedgunwick == True:
-        $ numberofdates + 1
-    else:
-        pass
-    if datedgunwick == True:
-        $ numberofdates + 1
-    else:
-        pass
+
     if datednorman == True:
         $ numberofdates + 1
     else:
         pass
+
+    if datedgunwick == True:
+        $ numberofdates + 1
+    else:
+        pass
+
+    if datednorman == True:
+        $ numberofdates + 1
+    else:
+        pass
+
     if datedvelvet == True:
         $ numberofdates + 1
     else:
         pass
+
     if datedjessi == True:
         $ numberofdates + 1
     else:
         pass
+
     if datedwilliamafter == True:
         $ numberofdates + 1
     else:
         pass
-    
+
     #Trying to let the player know how many dates they have been on and possibly who they were with
 
     if numberofdates == 1:
+        "Hello World"
         t "So far, you have dated 1 person out of 6."
-    else:
-        pass
-
-    if numberofdates >= 2:
-        t "So far you have dated [numberofdates] out of 6 people."
     else:
         pass
 
     if numberofdates == 6:
         t "You have dated everyone! Impressive."
         jump secretending
+    else:
+        pass
+
+    if numberofdates >= 2:
+        t "So far you have dated [numberofdates] out of 6 people."
     else:
         pass
 

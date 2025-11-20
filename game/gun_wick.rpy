@@ -60,10 +60,8 @@ label crimealley2:
 
     g "Well... a 'beauty' you say? That's quite delightful of you!"
     g "I'm quite enamored by your lovely choice of words."
-    g "You've spoken your way to my heart!"
-
     $ datedgunwick = True
-    
+    g "You've spoken your way to my heart!"
     jump start
 
 #I'm not yet sure where to take this
