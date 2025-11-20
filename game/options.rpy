@@ -207,5 +207,3 @@ init python:
 ## by a slash.
 
 # define build.itch_project = "renpytom/test-project"
-
-define build.itch_project = "Rhatticus/Date Rush"

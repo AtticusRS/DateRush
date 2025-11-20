@@ -30,12 +30,38 @@ label crimealley2:
             t "..."
             pass
         "Apologies good sir, I believe my gps had led me astray!":
+            $ time - 2
             t "Yeea, that'll fool him..."
             jump crimealley
 
     g "Uh, wow, kid. That's considerably, er, audacious of you."
     g "Are you a cop? I don't think I can fathom another individual who may perform as, er... uh, eccentric."
-    g "Just kidding, I love how bold you are!"
+    menu:
+        "No I'm not a cop, I just know a beauty when I see it!":
+            hide gun_shocked
+            show gun_happy with dissolve
+            pass
+        "Yea sorry, I'm going to have to arrest you for... something...":
+            hide gun_shocked
+            show gun_shocked2 with dissolve
+            g "You're worrying me... I must inqure of your angle-"
+            g "What are you getting at?"
+            t "What ARE you getting at?"
+            menu:
+                "Put your hands up!":
+                    hide gun_shocked2
+                    show gun_angry with dissolve
+                    g "I have ascertained the necessary action to handle your unfavorable presence!"
+                    t "What have you done?!"
+                    g "Behold, my innate power!"
+                    hide gun_angry with dissolve
+                    "A loud bang rings out and your vision fades"
+                    jump start
+
+    g "Well... a 'beauty' you say? That's quite delightful of you!"
+    g "I'm quite enamored by your lovely choice of words."
+    g "You've spoken your way to my heart!"
+
     $ datedgunwick = True
     
     jump start
