@@ -2,6 +2,11 @@
 
 #This timeline is dialouge heavy, SO for the time mechanic we'd prbably need to figure out things here 
 
+#add illusion of random- roll more dice
+#dnd actions! NOT DND
+#use up more timeee
+
+
 label velvet:
     scene gamerbasement
     menu:

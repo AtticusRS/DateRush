@@ -1,5 +1,7 @@
 #This route follows the route of Jessi
 
+#add interupptions
+
 label jessi:
 
     scene outsidebar
