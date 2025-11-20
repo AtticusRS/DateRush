@@ -48,6 +48,7 @@ label crimealley:
             t "You- what?! Hello?? Are you insane?"
             jump narrator
         "Return to the street":
+            $ time - 1
             t "Smart fellow! Let's get you back to Norman."
             jump norman
 
@@ -111,7 +112,7 @@ label normantaxifare:
             $ norman5ask = True
             "No response"
             t "The air is exceptionally cold, I can just feel that they didn't like to hear you ask that."
-            t "While lowballing is smart, you need to be more reasonable, we don't have a lot of time."
+            t "While lowballing can sometimes be effective, you need to be more reasonable, we don't have a lot of time!"
             jump normantaxifare
         "Will if be $7?" if norman7ask == False:
             $ time - 2
@@ -124,12 +125,12 @@ label normantaxifare:
             $ time - 2
             "There is a pause, but then the driver grunts in agreement"
             t "Whew, I'm pretty sure you only have $10."
-            t "I would say that's reasonable."
+            t "I would say that's uh... pretty reasonable."
             jump normantaxi2
         "Will it be $15?":
-            $ time - 2
+            $ time - 3
             "The driver grunts in agreeance immediately"
-            t "Uhm, do you even have $15?"
+            t "Uhm... do you even have $15?"
             "A fly buzzes out of your wallet"
             t "That's NOT reasonable."
             "In a flash, the driver kicks you out of the car"
@@ -139,6 +140,16 @@ label normantaxifare:
 label normantaxi2:
     "The driver accepts your money and begins driving"
     t "Alright! Now we're making progress."
+    t "But, it seems the driver is going kind of slow..."
+    t "Maybe you can prompt him to go faster?"
+    menu:
+        "Excuse me, can you go faster?":
+            $ time - 1
+            "The driver grunts and ever so slightly picks up the pace"
+            t "That... is somewhat better..."
+        "Say nothing":
+            $ time - 5
+
 
 #This is the route where you continue down the street
 
