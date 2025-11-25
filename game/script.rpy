@@ -79,16 +79,23 @@ default numberofdates = 0
 label start:
     scene phone
 
-    #Norman's variables
+    #Norman's variables (some are being reset after each start, hence the $)
     default wetclothes = False
+    $ wetclothes = False
     default witnesscatrat = False
+    $ witnesscatrat = False
     default flirtwithnarrator = False
+    $ flirtwithnarrator = False
     default goneintobar = False
+    $ goneintobar = False
     default calledtaxi = False
+    $ calledtaxi = False
     default norman5ask = False
+    $ norman5ask = False
     default norman7ask = False
+    $ norman7ask = False
 
-    #William's variables
+    #William's variables (some are being reset after each start, hence the $)
     default williamdemand = False
     $ williamdemand = False
     default williamtimed = 0
@@ -99,50 +106,44 @@ label start:
 
     #General variable that resets when the game resests
     $ time = 25
+    $ numberofdates = 0
 
     #Very crude method of determining how many dates the player has been on
     #Please recommend any smarter methods you may come up with
 
-
     if datednarrator == True:
-        $ numberofdates + 1
+        $ numberofdates = numberofdates + 1
     else:
         pass
 
     if datednorman == True:
-        $ numberofdates + 1
+        $ numberofdates = numberofdates + 1
     else:
         pass
 
     if datedgunwick == True:
-        $ numberofdates + 1
-    else:
-        pass
-
-    if datednorman == True:
-        $ numberofdates + 1
+        $ numberofdates = numberofdates + 1
     else:
         pass
 
     if datedvelvet == True:
-        $ numberofdates + 1
+        $ numberofdates = numberofdates + 1
     else:
         pass
 
     if datedjessi == True:
-        $ numberofdates + 1
+        $ numberofdates = numberofdates + 1
     else:
         pass
 
     if datedwilliamafter == True:
-        $ numberofdates + 1
+        $ numberofdates = numberofdates + 1
     else:
         pass
 
     #Trying to let the player know how many dates they have been on and possibly who they were with
 
     if numberofdates == 1:
-        "Hello World"
         t "So far, you have dated 1 person out of 6."
     else:
         pass
@@ -151,65 +152,59 @@ label start:
         t "You have dated everyone! Impressive."
         jump secretending
     else:
-        pass
-
-    if numberofdates >= 2:
-        t "So far you have dated [numberofdates] out of 6 people."
-    else:
+        if numberofdates >= 2:
+            t "So far you have dated [numberofdates] out of 6 people."
+        else:
+            pass
         pass
 
     t "Four lovely options to date! Pick at your pace. No rush here friend. Take your time! All the time in the world right here. On your phone. Yep!"
 
 menu:
     "William After":
-        if datedwilliamafter == True:
-            t "You've already dated this person, are you sure you want to continue?"
-            menu:
-                "Yes":
-                    pass
-                "No":
-                    jump start
-        else:
-            pass
+        show william_neutral
         t "An older and very refined gentleman. Quite a sucessful investor in a pizza chain."
-        jump william_after
+        t "Are you sure you want to date Sir William?"
+        menu:
+            "Yes":
+                hide william_neutral
+                jump william_after
+            "No thanks":
+                hide william_neutral
+                jump start
+
     "Norman":
-        if datednorman == True:
-            t "You've already dated this person, are you sure you want to continue?"
-            menu:
-                "Yes":
-                    pass
-                "No":
-                    jump start
-        else:
-            pass
-        t "The average one. You probabaly choose water over any other drink option too huh? No judgement here though."
-        jump norman
-    "Velvet":
-        if datedvelvet == True:
-            t "You've already dated this person, are you sure you want to continue?"
-            menu:
-                "Yes":
-                    pass
-                "No":
-                    jump start
-        else:
-            pass
-        t "Whats not to love about whimsy and a woman with horns?"
-        jump velvet
-    "Jessi":
-        if datedjessi == True:
-            t "You've already dated this person, are you sure you want to continue?"
-            menu:
-                "Yes":
-                    pass
-                "No":
-                    jump start
-        else:
-            pass
-        t "If attitude had a form instead of just being a concept, this is her."
-        jump jessi
+        #show norman_neutral
+        t "The average one. You'd probabaly choose water over any other drink option too huh? No judgement here though."
+        t "Are you sure you want to date Norman?"
+        menu:
+            "Yes":
+                #hide norman_neutral
+                jump norman
+            "No thanks":
+                #hide norman_neutral
+                jump start
     
-#The Norman content that was here is now on norman.rpy
+    "Velvet":
+        show velvet_neutral
+        t "Whats not to love about whimsy and a woman with horns?"
+        t "Are you sure you want to date Velvet?"
+        menu:
+            "Yes":
+                hide velvet_neutral
+                jump velvet
+
+    
+    "Jessi":
+        #show jessi_neutral
+        t "If attitude had a form instead of just being a concept, this is her."
+        t "Are you sure you want to date Jessi?"
+        menu:
+            "Yes":
+                #hide jessi_neutral
+                jump jessi
+            "No thanks":
+                #hide jessi_neutral
+                jump start
 
 return
