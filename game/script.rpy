@@ -9,7 +9,7 @@ define g = Character("Gun Wick")
 define n = Character("Norman")
 
 define v = Character("Velvet")
-define o = Character("Dragon Repossesor")
+define o = Character("Dragon Repossessor")
 define g = Character("Reg the Goblin")
 
 define j = Character("Jessi")
