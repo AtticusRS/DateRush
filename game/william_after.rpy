@@ -12,8 +12,10 @@ label william_after:
         "No thank you...":
             t "Maybe another time William..."
             jump start
+    t "Alright!! You have... only 25 minutes to get there..."
+    t "Let's see what"
     t "The Ritz? Never heard of it either? No matter, Oogle Maps has all the knowledge we need!"
-    t "Here we are! It says the Ritz is approximately 15 minutes away if you chose to walk. That is, if there are minimal disruptions."
+    t "Here we are! It says the Ritz is approximately 20 minutes away if you chose to walk. That is, if there are minimal disruptions."
     t "On the other hand, there is the choice of getting a ride, but it seems the most readily available option is a limo."
     t "You would have a better chance of getting there if you took the limo, but it's more expensive and it doesn't realy seem like... you?"
     t "Unless that's how you want to appear."
@@ -143,9 +145,16 @@ label williamlimo2:
     t "You made it!"
     "*Bzzzt bzzzt*"
     t "A text, now?"
+    show william_neutral:
+        xalign 0.5
+        yalign 0.0
     w "'I see a limo has pulled up, one of my limos...'"
     t "One of HIS limos??"
     w "'And the person who got out is looking at their phone-'"
+    hide william_neutral
+    show william_angry with dissolve:
+        xalign 0.5
+        yalign 0.0
     w "'As I'm texting you...'"
     w "'I'm sorry, I don't really see this working out. I don't want to date another superficial person.'"
     t "Wow, the limo was really a terrible idea. Why would you ever even think that would be smart?? Geez..."
@@ -155,9 +164,6 @@ label williamlimo2:
 #This is the actual date with William
 label williamdate:
     "You walk to the bottom of the stairs, guarded by a gorgerous velvet rope and a fierce bouncer."
-    show william_neutral with dissolve:
-        xalign 0.5
-        yalign 0.0
     menu:
         "Let me through NOW!!" if williamdemand is False:
             $ williamdemand = True
@@ -177,8 +183,10 @@ label williamdate:
             "Then, a voice shouts from atop the stairs..."
             w "Let them through!"
             pass
+    show william_happy with dissolve
     w "Welcome, welcome! I'm so glad to see you!"
     $ datedwilliamafter = True
+    hide william_happy
     t "You've dated William!"
     jump start
 

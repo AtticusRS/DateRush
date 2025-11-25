@@ -201,26 +201,56 @@ label continuestreet:
             t "Amazing! It seems you have managed to make it on time, beating the odds!"
             t "Let's meet Norman, the man of the hour!"
             if wetclothes == True:
-                jump normandatewetclothes
+                jump normandate_wetclothes
             else:
-                jump normandatenormal
+                jump normandate_normal
 
 #This is the date with Norman!
 
-label normandatewetclothes:
-    $ datednorman = True
+label normandate_normal:
+    show norman_happy
     n "Oh, hello!"
     n "It's so great to see you! I love your outfit!"
     n "I hope my apparel isn't too underwhelming..."
     menu:
         "Not at all!":
             n "I appreciate that. Your reassurance means a lot to me!"
-        "What are you talking about, you're drop-dead gorgeous!":
-            n "Well... now you may be stretching it, but I can't lie- I am quite enamored by your comment..."
-            n "Thank you so much!"
+            pass
+        "Uhm yea, actually... your outfit kind of sucks":
+            hide norman_happy
+            show norman_neutral
+            n "Oh..."
+            hide norman_neutral
+            show norman_happy with dissolve
+            n "Oh! Haha, you got me! That's surely an abrasive joke though..."
+            menu:
+                "I'm not joking, your wardrobe needs work.":
+                    hide norman_happy
+                    show norman_shocked with dissolve
+                    n "Uhh, well maybe you could help me with that or something??"
+                    n "Like going on a thrifting trip or...."
+                    menu:
+                        "I don't think I can be seen in public with you...":
+                            hide norman_shocked
+                            show norman_angry with dissolve
+                            n "Alright well this is obviously not working out."
+                            n "Goodbye! No, not 'good'-bye, just bye!"
+                            t "Who are you??"
+                            jump start
+                        "I don't think I can afford the amount of clothes you'd need to fix your style...":
+                            hide norman_shocked
+                            show norman_angry with dissolve
+                            n "Alright well this is obviously not working out."
+                            n "Goodbye! No no, not 'good'-bye, just bye!"
+                            t "Who are you??"
+                            hide norman_angry
+                            jump start
+                "You're right, sorry! Joke was a little out of hand there...":
+                    n "That's alright! The first step to being a better person is acknowledging your mistakes!"
+                    n "Seeing that you are aware of a small slip-up, I foresee maturity within you!"
     jump start
 
-label normandatenormal:
+label normandate_wetclothes:
     $ datednorman = True
     n "Oh, hello!"
     n "It's so great to see you! Your attire is... stunningly unique!"

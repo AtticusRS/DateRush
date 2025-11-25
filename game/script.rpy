@@ -51,6 +51,11 @@ image william_angry = "williamafterangry.png"
 image william_happy = "williamafterhappy.png"
 image william_shocked = "williamaftershock.png"
 
+image norman_neutral = "normanneutral.png"
+image norman_happy = "normanhappy.png"
+image norman_shocked = "normanshocked.png"
+image norman_angry = "normanmad.png"
+
 image velvet_neutral = "Velvet.png"
 image velvet_angry = "Velvet_mad.png"
 image velvet_happy = "Velvethappy.png"
@@ -174,25 +179,29 @@ menu:
                 jump start
 
     "Norman":
-        #show norman_neutral
+        show norman_neutral
         t "The average one. You'd probabaly choose water over any other drink option too huh? No judgement here though."
         t "Are you sure you want to date Norman?"
         menu:
             "Yes":
-                #hide norman_neutral
+                hide norman_neutral
                 jump norman
             "No thanks":
-                #hide norman_neutral
+                hide norman_neutral
                 jump start
     
     "Velvet":
-        show velvet_neutral
+        show velvet_neutral:
+            xzoom 0.5 yzoom 0.5
         t "Whats not to love about whimsy and a woman with horns?"
         t "Are you sure you want to date Velvet?"
         menu:
             "Yes":
                 hide velvet_neutral
                 jump velvet
+            "No thanks":
+                hide velvet_neutral
+                jump start
 
     
     "Jessi":
