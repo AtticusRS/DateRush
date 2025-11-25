@@ -15,32 +15,105 @@ label william_after:
     t "Alright!! You have... only 25 minutes to get there..."
     t "Let's see what"
     t "The Ritz? Never heard of it either? No matter, Oogle Maps has all the knowledge we need!"
-    t "Here we are! It says the Ritz is approximately 20 minutes away if you chose to walk. That is, if there are minimal disruptions."
+    t "Here we are! It says the Ritz is approximately 15 minutes away if you chose to walk. That is, if there are minimal disruptions."
     t "On the other hand, there is the choice of getting a ride, but it seems the most readily available option is a limo."
     t "You would have a better chance of getting there if you took the limo, but it's more expensive and it doesn't realy seem like... you?"
     t "Unless that's how you want to appear."
     t "What do you think?"
-    menu:
-        "I'll walk!":
-            t "Right! It says more about your character."
-            pass
-        "Limo it is!":
-            t "Are you sure?"
-            menu:
-                "Pester me no longer! I am sure of my choice!":
-                    t "Alright, cool your jets."
-                    jump williamlimo
-                "Errr, actually on second thought...":
-                    t "I think this will work out in the end!"
-                    pass
-        "Think about it":
-            $ time - 2
-            t "Riiight, I see. Hm, I guess I can see that something like this would require lots of consideration."
-            t "Don't forget how much time you have though..."
-            pass
+    jump choosing_for_william
+
+    # Deciding how to get to William
+
+    label choosing_for_william:
+        menu:
+            "I'll walk!":
+                t "Right! It says more about your character."
+                jump on_foot
+            "Limo it is!":
+                t "Are you sure?"
+                menu:
+                    "Pester me no longer! I am sure of my choice!":
+                        t "Alright, cool your jets."
+                        jump williamlimo
+                    "Errr, actually on second thought...":
+                        t "I think this will work out in the end!"
+                        pass
+            "Think about it" if thinkingalot == True:
+                $ time - 2
+                t "Riiight, I see. Hm, I guess I can see that something like this would require lots of consideration."
+                t "Don't forget how much time you have though..."
+                jump brain_cramp
+
+    # Choosing to get to William on foot
+
+    label on_foot:
+        t "So you're walking, do you have 15 minutes to spare by walking?"
+        t "Or do you want to do anything other than walking?"
+        menu:
+            "I'm juuust gonna walk...":
+                t "Okay! Solid! Works, it works for sure."
+                t "Are you sure?"
+                    menu:
+                        "Yes, let me walk":
+                            t "Okayy fine. Only because you said so."
+                            jump walking_along
+                        "Noo, maybe not":
+                            t "Cool! Don't forget, the choice is yours!"
+                            jump walking_along
+            "I wanna skip my way there!":
+                $ skippedto_william = True
+                t "Alright! I like that enthusiasm!"
+                jump skipping_along
+
+    label walking_along:
+        "Walking walking walking"
+        jump predate_william
     
+    label skipping_along:
+        "Skipping skipping skipping"
+        jump predate_william
+
+    
+    # Thinking too much
+
+    label brain_cramp:
+        $ thinkingalot = True
+        menu:
+            "Think eeeeeven more!":
+                $ time - 2
+                t "Haha, okay right. You're THINKING."
+                t "I really, truly, am shocked. Honest."
+                t "Now, please, let us do something productive, like getting to your DATE."
+                pass
+            "Fine, I'll do something else.":
+                $ time - 1
+                t "Wow, you're being compliant! Thank you! I mean it!"
+                t "I'm sure William will appreciate it too."
+                jump choosing_for_william
+        menu:    
+            "Think think think thinking thinker":
+                $ time - 2
+                t "You're just on a roll today! Woohoo you're thinking, you're-"
+                t "Oh... what's wrong with your face?"
+                t "It looks all scrunched like you're in pain and-"
+                t "Omg, are you dying?!"
+                "Your brain feels like it's about to explode... btw"
+                t "I don't even- just like- uhhhh"
+                t "I think you need to lay down for sometime..."
+                t "Like 8 minutes time."
+                $ time - 8
+                "You lay down for a while..."
+                t "Welcome back! Let's not... think... too much again?"
+                jump choosing_for_william
+            "I'm done with this bit.":
+                $ time - 1
+                t "Just so you know, it was NOT funny."
+                t "NOooobody is laughing."
+                jump choosing_for_william
+
     #I think we should add obstacles here in the future, but this is the prototype as of now
 
+label predate_william:
     t "You made it! With [time] minutes to spare!"
     t "Wow, this place is... stunning! Maybe the limo would've made for a more appropriate entrance."
     t "Hopefully Sir William reeaaally appreciates your character! Hopefully..."

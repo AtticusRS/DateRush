@@ -108,6 +108,10 @@ label start:
     default timer_range = 0
     default firsttimewithtimer = True
     $ firstimewithtimer = True
+    default thinkingalot = False
+    $ thinkingalot = False
+    default skippedto_william == False
+    $ skippedto_william = False
 
     #General variable that resets when the game resests
     $ time = 25
