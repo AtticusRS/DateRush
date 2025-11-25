@@ -5,9 +5,6 @@
 #add illusion of random- roll more dice
 #dnd actions! NOT DND
 #use up more timeee
-
-
-
 #IMPORTANTTTT! The sprites always layer ontop of eachother instead of hiding the previous. Still having sorted that out yet.
 
 
@@ -27,7 +24,7 @@ menu:
 label DPS_Problem:
 scene tarven
 o "Just give it over, you're hurting the kid not helping them. That dragon should be back with its mom! With dragon-kind!"
-g "But I'm a GOOD dad!! Shiny is happy with me."
+rg "But I'm a GOOD dad!! Shiny is happy with me."
 menu:
     "Help Reg":
         t "You step in to intervene, putting yourself between the officals and the goblin."
