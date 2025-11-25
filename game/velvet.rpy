@@ -9,6 +9,7 @@
 
 
 label velvet:
+    $ time = 15
 scene gamerbasement
 
 menu:
