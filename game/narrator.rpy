@@ -48,7 +48,7 @@ label narrator:
             t "But... how? How will WE exist?"
     menu:
         "Just like this!":
-            $ datednarrator == True
+            $ datednarrator = True
             t "Your answer provides me reassurance through truth. This is enough for me too."
             t "Here's my number :)"
             jump start
