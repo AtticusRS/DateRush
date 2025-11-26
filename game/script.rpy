@@ -38,6 +38,10 @@ image incar = "inside of car.png"
 image tavern = "tavern.png"
 image gamerbasement = "gamer_basement.png"
 
+#Side note for including the bouncer!!!!! Use xzoom 0.54 yzoom 0.54
+
+image bouncer = "bouncer.png"
+
 image rat = "rat_notlooking.png"
 image ratsee = "rat_look.png"
 image ratwow = "rat_SHOCKED.png"
@@ -110,7 +114,7 @@ label start:
     $ firstimewithtimer = True
     default thinkingalot = False
     $ thinkingalot = False
-    default skippedto_william == False
+    default skippedto_william = False
     $ skippedto_william = False
 
     #General variable that resets when the game resests
@@ -171,7 +175,9 @@ label start:
 
 menu:
     "William After":
-        show william_neutral
+        show william_neutral:
+            xalign 0.5
+            yalign 0.0
         t "An older and very refined gentleman. Quite a sucessful investor in a pizza chain."
         t "Are you sure you want to date Sir William?"
         menu:

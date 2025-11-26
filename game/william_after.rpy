@@ -5,6 +5,9 @@ label william_after:
     "*Bzzzt bzzzt*"
     t "Hm? It seems you've recieved a text from somebody."
     t "Oh wow, the gentlemen you've chosen has already responded!"
+    show william_happy with dissolve:
+        xalign 0.5
+        yalign 0.0
     w "'Do you want to meet at the Ritz?'"
     menu:
         "Absolutely!":
@@ -12,6 +15,8 @@ label william_after:
         "No thank you...":
             t "Maybe another time William..."
             jump start
+            hide william_happy
+    hide william_happy
     t "Alright!! You have... only 25 minutes to get there..."
     t "Let's see what"
     t "The Ritz? Never heard of it either? No matter, Oogle Maps has all the knowledge we need!"
@@ -53,13 +58,13 @@ label william_after:
             "I'm juuust gonna walk...":
                 t "Okay! Solid! Works, it works for sure."
                 t "Are you sure?"
-                    menu:
-                        "Yes, let me walk":
-                            t "Okayy fine. Only because you said so."
-                            jump walking_along
-                        "Noo, maybe not":
-                            t "Cool! Don't forget, the choice is yours!"
-                            jump walking_along
+                menu:
+                    "Yes, let me walk":
+                        t "Okayy fine. Only because you said so."
+                        jump walking_along
+                    "Noo, maybe not":
+                        t "Cool! Don't forget, the choice is yours!"
+                        jump on_foot
             "I wanna skip my way there!":
                 $ skippedto_william = True
                 t "Alright! I like that enthusiasm!"
@@ -111,7 +116,7 @@ label william_after:
                 t "NOooobody is laughing."
                 jump choosing_for_william
 
-    #I think we should add obstacles here in the future, but this is the prototype as of now
+#This is like a precursor stage to dating William
 
 label predate_william:
     t "You made it! With [time] minutes to spare!"
@@ -120,7 +125,11 @@ label predate_william:
     t "Now, speaking of Mr. After, where is he?"
     "*Bzzzt bzzzt*"
     t "I wonder if it's William..."
+    show william_happy with dissolve:
+        xalign 0.5
+        yalign 0.0
     w "'If you're wondering where to go, I'm up the stairs! It's impossible to miss.'"
+    hide william_happy
     t "Alright! Up the stairs, into the... V.I.P. lounge?! If only we could go back in time..."
     t "The rest is up to you. I mean, though, you're already here..."
     menu:
@@ -138,6 +147,7 @@ label predate_william:
                     jump williamdate
 
 #This follows the route of taking the limo
+
 label williamlimo:
     t "Alright 'Mr. High and Mighty', the limo should be here in about 5 minutes."
     $ time - 5
@@ -212,7 +222,7 @@ label limominigame3:
             t "Guess that means we'll have to circle the block..."
             jump limominigame
 
-
+# The end of the limo route
 
 label williamlimo2:
     t "You made it!"
@@ -235,7 +245,10 @@ label williamlimo2:
     jump start
 
 #This is the actual date with William
+
 label williamdate:
+    show bouncer at center:
+        xzoom 0.54 yzoom 0.54
     "You walk to the bottom of the stairs, guarded by a gorgerous velvet rope and a fierce bouncer."
     menu:
         "Let me through NOW!!" if williamdemand is False:
@@ -248,6 +261,11 @@ label williamdate:
             t "This is making me anxious..."
             "Then, a voice shouts from atop the stairs..."
             w "Let them through!"
+            hide bouncer with dissolve
+            show bouncer at right with dissolve:
+                xzoom 0.54 yzoom 0.54
+            b "Good luck. Don't dissapoint."
+            hide bouncer
             pass
         "I believe Mr. After is expecting me!":
             t "Confidence is key!"
@@ -255,8 +273,15 @@ label williamdate:
             t "This is making me anxious..."
             "Then, a voice shouts from atop the stairs..."
             w "Let them through!"
+            hide bouncer with dissolve
+            show bouncer at right with dissolve:
+                xzoom 0.54 yzoom 0.54
+            b "Good luck. Don't dissapoint."
+            hide bouncer
             pass
-    show william_happy with dissolve
+    show william_happy with dissolve:
+        xalign 0.5
+        yalign 0.0
     w "Welcome, welcome! I'm so glad to see you!"
     $ datedwilliamafter = True
     hide william_happy
