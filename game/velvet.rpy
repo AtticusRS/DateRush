@@ -33,7 +33,7 @@ menu:
         $ time - 3
     "Help Officials":
         t "You block the goblins escape as the officials close in. They rummage through his bag and pull out..."
-        t "A entire fucking dragon. A baby one, but still. It's actually kind of cute for a dangerous, fire monster! It appears to be sleeping soundly, not aware of the chaos going on even as it's taken out of the bag."
+        t "A entire dragon. A baby one, but still. It's actually kind of cute for a dangerous, fire monster! It appears to be sleeping soundly, not aware of the chaos going on even as it's taken out of the bag."
         $ time - 1
     "Stay a distant bystander":
         t "Whatever-- That's not your problem."
@@ -44,7 +44,7 @@ scene tavern
 show velvet_neutral with dissolve:
     xzoom 0.5 yzoom 0.5
 
-t "!!Immediately engaged with the action, the world itself leaks into reality until you find yourself sitting in the tavern."
+t "Immediately engaged with the action, the world itself leaks into reality until you find yourself sitting in the tavern."
 t "Despite your flawlessly executed pick-up line, The tiefling, Velvet, doesn't seem particularly engaged."
 v "Hmph. I havent heard that one before. Honestly, maybe we could we get to know eachother instead of just 'diving right in?' You've got some nerve."
 
