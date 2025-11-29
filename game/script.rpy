@@ -65,6 +65,11 @@ image velvet_angry = "Velvet_mad.png"
 image velvet_happy = "Velvethappy.png"
 image velvet_shocked = "Velvetshocked.png"
 
+image jessi_neutral = "JessiNormal.png"
+image jessi_happy = "JessiHappy.png"
+image jessi_shocked = "JessiSuprise.png"
+image jessi_angry = "JessiAnnoyed.png"
+
 image gun_neutral = "gun_side.png"
 image gun_angry = "gun_front.png"
 image gun_shocked = "gun_tilt.png"
@@ -215,15 +220,15 @@ menu:
 
     
     "Jessi":
-        #show jessi_neutral
+        show jessi_neutral
         t "If attitude had a form instead of just being a concept, this is her."
         t "Are you sure you want to date Jessi?"
         menu:
             "Yes":
-                #hide jessi_neutral
+                hide jessi_neutral
                 jump jessi
             "No thanks":
-                #hide jessi_neutral
+                hide jessi_neutral
                 jump start
 
 return
