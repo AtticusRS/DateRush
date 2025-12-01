@@ -99,7 +99,8 @@ label william_after:
                 t "Nevermind, we don't have the time to ask the questions, you need to get moving!"
                 t "And avoid any further... complications...?"
             "Don't step on a crack":
-                t "lol okay"
+                $ time = time - 1
+                t "Soo, you're still walking!"
                 
         jump predate_william
     

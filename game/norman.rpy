@@ -220,6 +220,7 @@ label continuestreet:
 #This is the date with Norman!
 
 label normandate_normal:
+    $ datednorman = True
     show norman_happy
     n "Oh, hello!"
     n "It's so great to see you! I love your outfit!"
