@@ -30,11 +30,11 @@ menu:
     "Help Reg":
         t "You step in to intervene, putting yourself between the officals and the goblin."
             # idk what to put here but I need OPTIONS people
-        $ time - 3
+        $ time = time - 3
     "Help Officials":
         t "You block the goblins escape as the officials close in. They rummage through his bag and pull out..."
         t "A entire dragon. A baby one, but still. It's actually kind of cute for a dangerous, fire monster! It appears to be sleeping soundly, not aware of the chaos going on even as it's taken out of the bag."
-        $ time - 1
+        $ time = time - 1
     "Stay a distant bystander":
         t "Whatever-- That's not your problem."
         jump intoDNDsuccess
@@ -70,14 +70,14 @@ menu:
         jump postive
     "QUICK! OVER THERE":
             t "The dragon-child protective services are shouting at a some goblin. One of the officials knocks his drink to the ground. Strangely, as the glass shatters, mud spills out instead of wine?"
-            $ time - 2
+            $ time = time - 2
             jump DPS_Problem
     "Listen to passing conversations":
             t "Alright. You listen in on the chatter around you instead of any sort of date."
             t "Nearby you hear people yelling at a goblin who's holding a cup of mud. Another murmur around the room is about a feral-man eating horse of some sort." 
             t "Strangly though, neither are the populaur subject among these strangers."
             t "Happy voices of a new couple, a cat and a rat, seem to hold peoples attention more than any other fantastical beast."
-            $ time - 5
+            $ time = time - 5
 
 
 

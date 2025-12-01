@@ -1,7 +1,6 @@
 #This file follows the route of William After
 
 label william_after:
-    show screen time_meter
     "You click on the finely aged man's profile"
     "*Bzzzt bzzzt*"
     t "Hm? It seems you've recieved a text from somebody."
@@ -20,6 +19,7 @@ label william_after:
     hide william_happy
     t "Alright!! You have... only [time] minutes to get there..."
 
+    #The timer shows up here now that the player knows how much time they have
     show screen time_meter
 
     t "Let's see what we can do in the time you have!"
