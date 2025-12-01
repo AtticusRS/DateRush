@@ -4,21 +4,21 @@
 # name of the character.
 
 #Defining characters!
-define t = Character("Narrator")
-define g = Character("Gun Wick")
-define n = Character("Norman")
+define t = Character("Narrator", color="#FAFAFA")
+define g = Character("Gun Wick", color="#BD1755")
+define n = Character("Norman", color="#C0D690")
 
-define v = Character("Velvet")
-define o = Character("Dragon Repossessor")
-define rg = Character("Reg the Goblin")
+define v = Character("Velvet", color="#C079DB")
+define o = Character("Dragon Repossessor", color="#2A528C")
+define rg = Character("Reg the Goblin", color="#329126")
 
-define j = Character("Jessi")
-define b = Character("Bouncer")
-define e = Character("Eavesdropper")
+define j = Character("Jessi", color="#4627C4")
+define b = Character("Bouncer", color="#F0310C")
+define e = Character("Eavesdropper", color="#5C769E")
 
-define w = Character("William After")
-define c = Character("Cat")
-define r = Character("Rat")
+define w = Character("William After", color="#6F1F94")
+define c = Character("Cat", color="#EBA210")
+define r = Character("Rat", color="#BFB6AE")
 
 
 #Defining images!
@@ -94,6 +94,7 @@ default numberofdates = 0
 
 #Code for visible time/resource meter!
 #When you want to show the meter on screen, type "show screen time_meter"
+#Don't forget to hide the time meter!!!! It will persist everywhere if you don't. Hide it with "hide screen time_meter"
 
 screen time_meter():
     bar:
@@ -109,6 +110,8 @@ screen time_meter():
 
 label start:
     scene phone
+
+    hide screen time_meter
 
     #Norman's variables (some are being reset after each start, hence the $)
     default wetclothes = False

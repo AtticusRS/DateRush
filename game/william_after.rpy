@@ -49,6 +49,7 @@ label william_after:
                         t "Alright, cool your jets."
                         jump williamlimo
                     "Errr, actually on second thought...":
+                        $ time = time - 1
                         t "I think this will work out in the end!"
                         pass
             "Think about it" if thinkingalot == False:
@@ -60,7 +61,7 @@ label william_after:
     # Choosing how to get to William, but on foot
 
     label on_foot:
-        t "So you're walking, do you have 15 minutes to spare by walking?"
+        t "So you're walking, do even you have 15 minutes to spare for walking?"
         t "Or do you want to do anything other than walking?"
         menu:
             "I'm juuust gonna walk...":
@@ -72,6 +73,7 @@ label william_after:
                         jump walking_along
                     "Noo, maybe not":
                         t "Cool! Don't forget, the choice is yours!"
+                        $ time = time - 1
                         jump on_foot
             "I wanna skip my way there!":
                 $ skippedto_william = True
@@ -80,7 +82,25 @@ label william_after:
                 jump skipping_along
 
     label walking_along:
-        "Walking walking walking"
+        "You begin walking"
+        t "So... walking, eh?"
+        t "Pretty... interesting I must say."
+        t "Don't forget not to step on the cracks! Or whatever..."
+        menu:
+            "Step on a crack":
+                t "You're very spiteful"
+                "An icy cold chill runs down your spine"
+                t "Woah, you look scared? What- did the crack do that?"
+                "The fear of what heinous consequences your act of definace may have brought upon your maternal figure staggers your progress-"
+                $ time = time - 5
+                "You become immobile for 5 minutes"
+                t "Hello? Hello? Heello??"
+                t "Oh, your face is moving again, what was that? Are you okay?"
+                t "Nevermind, we don't have the time to ask the questions, you need to get moving!"
+                t "And avoid any further... complications...?"
+            "Don't step on a crack":
+                t "lol okay"
+                
         jump predate_william
     
     label skipping_along:

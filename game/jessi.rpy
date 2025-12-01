@@ -4,6 +4,9 @@
 
 label jessi:
     $ time = 20
+    $ max_time = 20
+
+    #The max_time function allows the timer to work properly!
 
     scene outsidebar
     t "Smoke lingers in the air outside this shabby bar. Theres some other people walking by, but nothing of note. Distantly you could hear an arguement in a nearby alleyway."
@@ -23,7 +26,7 @@ label jessi:
 
 menu:
     "Talk to the Bouncer":
-        t "The...man? Thats..thats a dog.That is absoulutely a dog."
+        t "The...man? Thats..thats a dog. That is absoulutely a dog."
         t "Either way he looks you up and down. Your semi-formal attire speaks volumes."
         b "This place is not for you. The rougher customers here will not take kindly to your presence."
         b "I'm sorry but its best if you leave."

@@ -9,7 +9,11 @@
 
 
 label velvet:
+    $ max_time = 15
     $ time = 15
+
+    #The max_time function allows the timer to work properly!
+
 scene gamerbasement
 
 menu:

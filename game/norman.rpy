@@ -2,10 +2,22 @@
 
 label norman:
     scene streetside
+    t "Alright! Let's get to Norman!"
+    
+    show screen time_meter
+    
+    t "You have [time] minutes to get to him, what do you suggest?"
     menu:
         "Walk into the bar" if goneintobar == False:
             t "A bar, why?"
-            jump normanbar
+            t "Are you sure?"
+            menu:
+                "Yes! Drinks, drinks, drinks!":
+                    t "I think you actually have a problem..."
+                    jump normanbar
+                "No actually":
+                    t "You had me worried for a moment there!"
+                    jump norman
         "Continue down the street":
             $ time = time - 2
             t "The obvious choice."
