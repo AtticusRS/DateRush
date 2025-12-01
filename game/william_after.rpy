@@ -17,9 +17,9 @@ label william_after:
             jump start
             hide william_happy
     hide william_happy
-    t "Alright!! You have... only 25 minutes to get there..."
-    t "Let's see what"
-    t "The Ritz? Never heard of it either? No matter, Oogle Maps has all the knowledge we need!"
+    t "Alright!! You have... only [time] minutes to get there..."
+    t "Let's see what we can do in the time you have!"
+    t "Now, what is the Ritz? Never heard of it either? No matter, Oogle Maps has all the knowledge we need!"
     t "Here we are! It says the Ritz is approximately 15 minutes away if you chose to walk. That is, if there are minimal disruptions."
     t "On the other hand, there is the choice of getting a ride, but it seems the most readily available option is a limo."
     t "You would have a better chance of getting there if you took the limo, but it's more expensive and it doesn't realy seem like... you?"
@@ -30,6 +30,10 @@ label william_after:
     # Deciding how to get to William
 
     label choosing_for_william:
+        if thinkingalot == True:
+            t "So, what'll it be? Did you come up with something truly ingenious??"
+        else:
+            pass
         menu:
             "I'll walk!":
                 t "Right! It says more about your character."
@@ -49,7 +53,7 @@ label william_after:
                 t "Don't forget how much time you have though..."
                 jump brain_cramp
 
-    # Choosing to get to William on foot
+    # Choosing how to get to William, but on foot
 
     label on_foot:
         t "So you're walking, do you have 15 minutes to spare by walking?"
@@ -92,20 +96,20 @@ label william_after:
                 pass
             "Fine, I'll do something else.":
                 $ time - 1
-                t "Wow, you're being compliant! Thank you! I mean it!"
+                t "Wow, you're being compliant? Thank you! I mean it!"
                 t "I'm sure William will appreciate it too."
                 jump choosing_for_william
         menu:    
             "Think think think thinking thinker":
                 $ time - 2
-                t "You're just on a roll today! Woohoo you're thinking, you're-"
+                t "You're just on a roll today! Woohoo! You're thinking, you're-"
                 t "Oh... what's wrong with your face?"
                 t "It looks all scrunched like you're in pain and-"
                 t "Omg, are you dying?!"
                 "Your brain feels like it's about to explode... btw"
                 t "I don't even- just like- uhhhh"
                 t "I think you need to lay down for sometime..."
-                t "Like 8 minutes time."
+                t "Like... maybe 8 minutes..."
                 $ time - 8
                 "You lay down for a while..."
                 t "Welcome back! Let's not... think... too much again?"
@@ -146,7 +150,7 @@ label predate_william:
                     t "That's the spirit!"
                     jump williamdate
 
-#This follows the route of taking the limo
+# LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO
 
 label williamlimo:
     t "Alright 'Mr. High and Mighty', the limo should be here in about 5 minutes."
@@ -222,8 +226,6 @@ label limominigame3:
             t "Guess that means we'll have to circle the block..."
             jump limominigame
 
-# The end of the limo route
-
 label williamlimo2:
     t "You made it!"
     "*Bzzzt bzzzt*"
@@ -243,6 +245,8 @@ label williamlimo2:
     t "Wow, the limo was really a terrible idea. Why would you ever even think that would be smart?? Geez..."
     t "Just be yourself..."
     jump start
+
+# LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO LIMO
 
 #This is the actual date with William
 
