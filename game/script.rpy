@@ -37,6 +37,7 @@ image fancydinertable = "fancydiner_table"
 image incar = "inside of car.png"
 image tavern = "tavern.png"
 image gamerbasement = "gamer_basement.png"
+image black = "Black.png"
 
 #Side note for including the bouncer!!!!! Use xzoom 0.54 yzoom 0.54
 
@@ -121,6 +122,10 @@ label start:
     $ thinkingalot = False
     default skippedto_william = False
     $ skippedto_william = False
+
+    #Jessi Variables!
+    default blackeye = False
+    $ blackeye = False
 
     #General variable that resets when the game resests
     $ time = 25
@@ -220,7 +225,11 @@ menu:
 
     
     "Jessi":
-        show jessi_neutral
+        show jessi_neutral:
+            xalign 0.5
+            yalign 0.0
+            yzoom 0.4
+            xzoom 0.4
         t "If attitude had a form instead of just being a concept, this is her."
         t "Are you sure you want to date Jessi?"
         menu:
