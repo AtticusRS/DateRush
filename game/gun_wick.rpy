@@ -4,12 +4,12 @@ label gun_wick:
     scene crimealley
     menu:
         "Look just a liiiittle further":
-            $ time - 2
+            $ time = time - 2
             t "Why are you still looking?? Did you not hear what I said?"
             t "Are you forgetting what's at stake?"
             jump crimealley2
         "Return to the street":
-            $ time - 1
+            $ time = time - 1
             t "Smart fellow! Let's get you back to Norman."
             jump norman
 
@@ -30,7 +30,7 @@ label crimealley2:
             t "..."
             pass
         "Apologies good sir, I believe my gps had led me astray!":
-            $ time - 2
+            $ time = time - 2
             t "Yeea, that'll fool him..."
             jump crimealley
 

@@ -1,6 +1,7 @@
 #This file follows the route of William After
 
 label william_after:
+    show screen time_meter
     "You click on the finely aged man's profile"
     "*Bzzzt bzzzt*"
     t "Hm? It seems you've recieved a text from somebody."
@@ -18,6 +19,9 @@ label william_after:
             hide william_happy
     hide william_happy
     t "Alright!! You have... only [time] minutes to get there..."
+
+    show screen time_meter
+
     t "Let's see what we can do in the time you have!"
     t "Now, what is the Ritz? Never heard of it either? No matter, Oogle Maps has all the knowledge we need!"
     t "Here we are! It says the Ritz is approximately 15 minutes away if you chose to walk. That is, if there are minimal disruptions."
@@ -47,8 +51,8 @@ label william_after:
                     "Errr, actually on second thought...":
                         t "I think this will work out in the end!"
                         pass
-            "Think about it" if thinkingalot == True:
-                $ time - 2
+            "Think about it" if thinkingalot == False:
+                $ time = time - 2
                 t "Riiight, I see. Hm, I guess I can see that something like this would require lots of consideration."
                 t "Don't forget how much time you have though..."
                 jump brain_cramp
@@ -72,6 +76,7 @@ label william_after:
             "I wanna skip my way there!":
                 $ skippedto_william = True
                 t "Alright! I like that enthusiasm!"
+                t "Could save you some time too."
                 jump skipping_along
 
     label walking_along:
@@ -89,19 +94,19 @@ label william_after:
         $ thinkingalot = True
         menu:
             "Think eeeeeven more!":
-                $ time - 2
+                $ time = time - 2
                 t "Haha, okay right. You're THINKING."
                 t "I really, truly, am shocked. Honest."
                 t "Now, please, let us do something productive, like getting to your DATE."
                 pass
             "Fine, I'll do something else.":
-                $ time - 1
+                $ time = time - 1
                 t "Wow, you're being compliant? Thank you! I mean it!"
                 t "I'm sure William will appreciate it too."
                 jump choosing_for_william
         menu:    
             "Think think think thinking thinker":
-                $ time - 2
+                $ time = time - 2
                 t "You're just on a roll today! Woohoo! You're thinking, you're-"
                 t "Oh... what's wrong with your face?"
                 t "It looks all scrunched like you're in pain and-"
@@ -110,12 +115,12 @@ label william_after:
                 t "I don't even- just like- uhhhh"
                 t "I think you need to lay down for sometime..."
                 t "Like... maybe 8 minutes..."
-                $ time - 8
+                $ time = time - 8
                 "You lay down for a while..."
                 t "Welcome back! Let's not... think... too much again?"
                 jump choosing_for_william
             "I'm done with this bit.":
-                $ time - 1
+                $ time = time - 1
                 t "Just so you know, it was NOT funny."
                 t "NOooobody is laughing."
                 jump choosing_for_william
@@ -123,7 +128,15 @@ label william_after:
 #This is like a precursor stage to dating William
 
 label predate_william:
-    t "You made it! With [time] minutes to spare!"
+    t "You made it! Let's see how much time you have."
+    t "You have about [time] minute(s) left."
+    if time <= 0:
+        t "Oh no... it seems you're out of time."
+        t "I'm sorry, you'll have to try again."
+        jump start
+    else:
+        pass
+    t "Nice, then William shouuuld be here!"
     t "Wow, this place is... stunning! Maybe the limo would've made for a more appropriate entrance."
     t "Hopefully Sir William reeaaally appreciates your character! Hopefully..."
     t "Now, speaking of Mr. After, where is he?"
@@ -154,7 +167,7 @@ label predate_william:
 
 label williamlimo:
     t "Alright 'Mr. High and Mighty', the limo should be here in about 5 minutes."
-    $ time - 5
+    $ time = time - 5
     t "Great, the limo is here! Those 5 minutes went by inexplicably fast!"
     "The limo driver begins driving as soon as you are seated"
     t "Awesome, this limo driver knows what's up!"
@@ -177,7 +190,7 @@ label limominigame:
 
     #The if-statement here ensures that the player only gets the tutorial once- and that is when they start the minigame
 
-    $ time - 1
+    $ time = time - 1
     if firsttimewithtimer is True:
         "You will have five seconds to determine if the driver is passing the correct building- clicking will begin the minigame sequence"
         $ firsttimewithtimer = False
@@ -198,7 +211,7 @@ label limominigame:
     
 label limominigame2:
     t "The driver moved on to the next building!"
-    $ time - 1
+    $ time = time - 1
     $ williamtimed = 5
     $ timer_range = 5
     $ timer_jump = 'limominigame3'
@@ -212,17 +225,17 @@ label limominigame2:
 
 label limominigame3:
     t "The driver moved on to the next building!"
-    $ time - 1
+    $ time = time - 1
     $ williamtimed = 5
     $ timer_range = 5
     $ timer_jump = 'limominigame'
     menu:
         "Stop at this blue building with gold accents that's... tall!":
-            $ time - 5
+            $ time = time - 5
             t "Noo, that's wrong!"
             jump limominigame
         "Next building please!":
-            $ time - 1
+            $ time = time - 1
             t "Guess that means we'll have to circle the block..."
             jump limominigame
 

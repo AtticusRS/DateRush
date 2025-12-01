@@ -78,7 +78,12 @@ image gun_shocked2 = "gun_tilt_2.png"
 image gun_happy = "gun_side_2.png"
 
 #General variables!
+
 default time = 25
+
+#When a choice costs time, write "$ time = time - (the amount that is being subtracted)"
+
+default max_time = 25
 default datednarrator = False
 default datedgunwick = False
 default datednorman = False
@@ -86,6 +91,17 @@ default datedvelvet = False
 default datedjessi = False
 default datedwilliamafter = False
 default numberofdates = 0
+
+#Code for visible time/resource meter!
+#When you want to show the meter on screen, type "show screen time_meter"
+
+screen time_meter():
+    bar:
+        value time
+        range max_time
+        xalign 0.95
+        yalign 0.05
+        xmaximum 300  
 
 #NOW the game starts
 

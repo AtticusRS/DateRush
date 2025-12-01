@@ -3,7 +3,7 @@
 #Probably should show the Rat here once we get the image (on the left)
 
 label catrat:
-    $ time - 2
+    $ time = time - 2
     show rat at left
     t "Well, would you look at that!"
     t "It's a rat in an alley way... how queer!"
@@ -16,7 +16,7 @@ label catrat:
     t "Perhaps we should turn our attention elsewhere? I'm sure we can infer how this altercation will end."
     menu:
         "Return to your original date plans":
-            $ time - 2
+            $ time = time - 2
             jump crimealley
         "Just wait a little longer...":
             t "I see... you're going to waste precious time... again."

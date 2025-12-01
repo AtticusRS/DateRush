@@ -7,14 +7,14 @@ label norman:
             t "A bar, why?"
             jump normanbar
         "Continue down the street":
-            $ time - 2
+            $ time = time - 2
             t "The obvious choice."
             jump continuestreet
         "Get a taxi" if calledtaxi == False:
             t "The timely choice. You pull out your phone and call a Ewber, although the closest one is... definitely full of character."
             jump normantaxi
         "Investigate the nearby alley way":
-            $ time - 2
+            $ time = time - 2
             t "You don't see anything exactly remarkable. Cars rush down the road as you stand on the cracked pavement. You really should get moving now."
             t "Especially because you don't have all of the time in the world..."
             jump crimealley
@@ -25,7 +25,7 @@ label crimealley:
     scene crimealley
     menu:
         "Investigate the alley even further":
-            $ time - 2
+            $ time = time - 2
             t "Sure. Look at the alley way. The alley next to the bar that's covered in graffiti. Do you know what they call this alley?"
             t "CRIME Alley. Its called Crime Alley. Happy?"
             t "Now it's time to stop looking over there, there's nothing else to see."
@@ -34,7 +34,7 @@ label crimealley:
         #The if statement here means the player can only witness the Cat and Rat date once
 
         "Investiagte the small creature that scampered behind the dumpster" if witnesscatrat == False:
-            $ time - 2
+            $ time = time - 2
             $ witnesscatrat = True
             t "Why do you concern yourself with such trivial matters?"
             jump catrat
@@ -43,12 +43,12 @@ label crimealley:
         #If they give up on flirting with the narrator, they have missed their chance!
         
         "Flirt with the narrator" if flirtwithnarrator == False:
-            $ time - 2
+            $ time = time - 2
             $ flirtwithnarrator = True
             t "You- what?! Hello?? Are you insane?"
             jump narrator
         "Return to the street":
-            $ time - 1
+            $ time = time - 1
             t "Smart fellow! Let's get you back to Norman."
             jump norman
 
@@ -59,7 +59,7 @@ label normanbar:
     
     #This immediately results in a failure
 
-    $ time - 25
+    $ time = time - 25
     t "So, you're in the bar."
     t "You might as well have a drink"
     menu:
@@ -78,7 +78,7 @@ label normanbar:
 #This is the route where you take the taxi
 
 label normantaxi:
-    $ time - 5
+    $ time = time - 5
     $ calledtaxi = True
     "The taxi finally arrives"
     t "Thank goodness, how long was that? Were you counting? I would say 5 minutes but I don't really have any way to be sure."
@@ -108,27 +108,27 @@ label normantaxi:
 label normantaxifare:
     menu:
         "Will it be $5?" if norman5ask == False:
-            $ time - 2
+            $ time = time - 2
             $ norman5ask = True
             "No response"
             t "The air is exceptionally cold, I can just feel that they didn't like to hear you ask that."
             t "While lowballing can sometimes be effective, you need to be more reasonable, we don't have a lot of time!"
             jump normantaxifare
         "Will if be $7?" if norman7ask == False:
-            $ time - 2
+            $ time = time - 2
             $ norman7ask = True
             "No response"
             t "I don't think that was the right answer..."
             t "Don't forget to be reasonable! Time is wasting."
             jump normantaxifare
         "Will it be $10?":
-            $ time - 2
+            $ time = time - 2
             "There is a pause, but then the driver grunts in agreement"
             t "Whew, I'm pretty sure you only have $10."
             t "I would say that's uh... pretty reasonable."
             jump normantaxi2
         "Will it be $15?":
-            $ time - 3
+            $ time = time - 3
             "The driver grunts in agreeance immediately"
             t "Uhm... do you even have $15?"
             "A fly buzzes out of your wallet"
@@ -144,11 +144,11 @@ label normantaxi2:
     t "Maybe you can prompt him to go faster?"
     menu:
         "Excuse me, can you go faster?":
-            $ time - 1
+            $ time = time - 1
             "The driver grunts and ever so slightly picks up the pace"
             t "That... is somewhat better..."
         "Say nothing":
-            $ time - 5
+            $ time = time - 5
 
 
 #This is the route where you continue down the street
@@ -162,7 +162,7 @@ label continuestreet:
     t "What will you do?"
     menu:
         "Go home and change":
-            $ time - 5
+            $ time = time - 5
             t "Oh boy... you're already running low on time."
             $ wetclothes = False
             "You go home and change... it takes a while."
@@ -174,7 +174,7 @@ label continuestreet:
                 "I'm not giving up yet!":
                     t "That's the spirit! You might have a chance afterall, old chum."
         "Continue on... in wet clothes":
-            $ time - 2
+            $ time = time - 2
             t "Your determination is admirable! It seems you understand how little time you have to spare."
             t "Let us continue then!"
     
@@ -183,11 +183,11 @@ label continuestreet:
     menu:
         "Head into the cafe and meet Norman":
             t "Alright! Let's check the time first, to see if Norman is going to be there or not."
-            t "You have [time] minutes left."
+            t "You have [time] minute(s) left."
         "Wait! I'm too nervous!":
             t "Now is not the time to second guess yourself! There's no going back from here!"
             t "Let's check the time first, to see if Norman is going to be there or not."
-            t "You have [time] minutes left."
+            t "You have [time] minute(s) left."
             if time <= 0:
                 t "Oh no... it seems you're out of time."
                 if goneintobar == True:
