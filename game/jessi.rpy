@@ -3,7 +3,7 @@
 #add interupptions
 
 label jessi:
-    $ time = 20
+    $ time = 15
 
     scene outsidebar
     t "Smoke lingers in the air outside this shabby bar. Theres some other people walking by, but nothing of note. Distantly you could hear an arguement in a nearby alleyway."
@@ -23,7 +23,7 @@ label jessi:
 
 menu:
     "Talk to the Bouncer":
-        t "The...man? Thats..thats a dog.That is absoulutely a dog."
+        t "The...man? Thats..thats a dog.That is absoulutly a dog."
         t "Either way he looks you up and down. Your semi-formal attire speaks volumes."
         b "This place is not for you. The rougher customers here will not take kindly to your presence."
         b "I'm sorry but its best if you leave."
@@ -84,6 +84,7 @@ menu:
 #Talking to the bouncer
 label bouncerconvo:
     show bouncer at left
+    b "Really though. If you cannot give"
     menu:
         "Think of the edgiest thing you can":
             t "By the face he made, it was hard to tell if him opening the door was out of pity or an attempt for a learning moment."

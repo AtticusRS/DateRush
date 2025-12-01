@@ -8,6 +8,8 @@
 #IMPORTANTTTT! The sprites always layer ontop of eachother instead of hiding the previous. Still having sorted that out yet.
 
 
+#fix dialouge
+
 label velvet:
     $ time = 15
 scene gamerbasement
@@ -23,7 +25,7 @@ menu:
             jump intoDNDfail
     
 label DPS_Problem:
-scene tarven
+scene tavern
 o "Just give it over, you're hurting the kid not helping them. That dragon should be back with its mom! With dragon-kind!"
 rg "But I'm a GOOD dad!! Shiny is happy with me."
 menu:
@@ -60,6 +62,7 @@ menu:
         
         jump datefailV
     "Ask her about her interests":
+        hide velvet_neutral
         hide velvet_neutral
         show velvet_happy:
             xzoom 0.5 yzoom 0.5
