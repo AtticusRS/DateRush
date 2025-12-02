@@ -3,15 +3,8 @@
 #add interupptions
 
 label jessi:
-<<<<<<< HEAD
     $ time = 15
-=======
-    $ time = 20
-    $ max_time = 20
-
-    #The max_time function allows the timer to work properly!
->>>>>>> 58b3e40cb778292c0f172ce787ede83185ca6182
-
+    $ max_time = 15
     scene outsidebar
     t "Smoke lingers in the air outside this shabby bar. Theres some other people walking by, but nothing of note. Distantly you could hear an arguement in a nearby alleyway."
     t "An oddly formal bouncer glances your way before going back to scold the familiar woman."
@@ -30,11 +23,7 @@ label jessi:
 
 menu:
     "Talk to the Bouncer":
-<<<<<<< HEAD
         t "The...man? Thats..thats a dog.That is absoulutly a dog."
-=======
-        t "The...man? Thats..thats a dog. That is absoulutely a dog."
->>>>>>> 58b3e40cb778292c0f172ce787ede83185ca6182
         t "Either way he looks you up and down. Your semi-formal attire speaks volumes."
         b "This place is not for you. The rougher customers here will not take kindly to your presence."
         b "I'm sorry but its best if you leave."

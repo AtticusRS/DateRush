@@ -221,7 +221,11 @@ label continuestreet:
 
 label normandate_normal:
     $ datednorman = True
-    show norman_happy
+    show norman_happy:
+        xalign 0.5
+        yalign 0.0
+        xzoom 1.1
+        yzoom 1.1
     n "Oh, hello!"
     n "It's so great to see you! I love your outfit!"
     n "I hope my apparel isn't too underwhelming..."
@@ -231,7 +235,11 @@ label normandate_normal:
             pass
         "Uhm yea, actually... your outfit kind of sucks":
             hide norman_happy
-            show norman_neutral
+            show norman_neutral:
+                xalign 0.5
+                yalign 0.0
+                xzoom 1.1
+                yzoom 1.1
             n "Oh..."
             hide norman_neutral
             show norman_happy with dissolve
@@ -239,20 +247,32 @@ label normandate_normal:
             menu:
                 "I'm not joking, your wardrobe needs work.":
                     hide norman_happy
-                    show norman_shocked with dissolve
+                    show norman_shocked with dissolve:
+                        xalign 0.5
+                        yalign 0.0
+                        xzoom 1.1
+                        yzoom 1.1
                     n "Uhh, well maybe you could help me with that or something??"
                     n "Like going on a thrifting trip or...."
                     menu:
                         "I don't think I can be seen in public with you...":
                             hide norman_shocked
-                            show norman_angry with dissolve
+                            show norman_angry with dissolve:
+                                xalign 0.5
+                                yalign 0.0
+                                xzoom 1.1
+                                yzoom 1.1
                             n "Alright well this is obviously not working out."
                             n "Goodbye! No, not 'good'-bye, just bye!"
                             t "Who are you??"
                             jump start
                         "I don't think I can afford the amount of clothes you'd need to fix your style...":
                             hide norman_shocked
-                            show norman_angry with dissolve
+                            show norman_angry with dissolve:
+                                xalign 0.5
+                                yalign 0.0
+                                xzoom 1.1
+                                yzoom 1.1
                             n "Alright well this is obviously not working out."
                             n "Goodbye! No no, not 'good'-bye, just bye!"
                             t "Who are you??"

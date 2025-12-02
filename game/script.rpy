@@ -204,47 +204,51 @@ label start:
 
 menu:
     "William After":
-        show william_neutral:
+        show william_happy:
             xalign 0.5
             yalign 0.0
         t "An older and very refined gentleman. Quite a sucessful investor in a pizza chain."
         t "Are you sure you want to date Sir William?"
         menu:
             "Yes":
-                hide william_neutral
+                hide william_happy
                 jump william_after
             "No thanks":
-                hide william_neutral
+                hide william_happy
                 jump start
 
     "Norman":
-        show norman_neutral
+        show norman_happy:
+            xalign 0.5
+            yalign 0.0
+            xzoom 1.1
+            yzoom 1.1
         t "The average one. You'd probabaly choose water over any other drink option too huh? No judgement here though."
         t "Are you sure you want to date Norman?"
         menu:
             "Yes":
-                hide norman_neutral
+                hide norman_happy
                 jump norman
             "No thanks":
-                hide norman_neutral
+                hide norman_happy
                 jump start
     
     "Velvet":
-        show velvet_neutral:
+        show velvet_happy:
             xzoom 0.5 yzoom 0.5
         t "Whats not to love about whimsy and a woman with horns?"
         t "Are you sure you want to date Velvet?"
         menu:
             "Yes":
-                hide velvet_neutral
+                hide velvet_happy
                 jump velvet
             "No thanks":
-                hide velvet_neutral
+                hide velvet_happy
                 jump start
 
     
     "Jessi":
-        show jessi_neutral:
+        show jessi_happy:
             xalign 0.5
             yalign 0.0
             yzoom 0.4
@@ -253,10 +257,10 @@ menu:
         t "Are you sure you want to date Jessi?"
         menu:
             "Yes":
-                hide jessi_neutral
+                hide jessi_happy
                 jump jessi
             "No thanks":
-                hide jessi_neutral
+                hide jessi_happy
                 jump start
 
 return

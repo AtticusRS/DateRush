@@ -54,8 +54,10 @@ label crimealley2:
                     g "I have ascertained the necessary action to handle your unfavorable presence!"
                     t "What have you done?!"
                     g "Behold, my innate power!"
+                    scene black
                     hide gun_angry with dissolve
                     "A loud bang rings out and your vision fades"
+                    hide scene black
                     jump start
 
     g "Well... a 'beauty' you say? That's quite delightful of you!"

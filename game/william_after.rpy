@@ -93,8 +93,10 @@ label william_after:
                 t "Woah, you look scared? What- did the crack do that?"
                 "The fear of what heinous consequences your act of definace may have brought upon your maternal figure staggers your progress-"
                 $ time = time - 5
+                scene black
                 "You become immobile for 5 minutes"
                 t "Hello? Hello? Heello??"
+                hide scene black with dissolve
                 t "Oh, your face is moving again, what was that? Are you okay?"
                 t "Nevermind, we don't have the time to ask the questions, you need to get moving!"
                 t "And avoid any further... complications...?"
@@ -149,6 +151,7 @@ label william_after:
 #This is like a precursor stage to dating William
 
 label predate_william:
+    scene fancydiner_outside
     t "You made it! Let's see how much time you have."
     t "You have about [time] minute(s) left."
     if time <= 0:
@@ -190,6 +193,7 @@ label williamlimo:
     t "Alright 'Mr. High and Mighty', the limo should be here in about 5 minutes."
     $ time = time - 5
     t "Great, the limo is here! Those 5 minutes went by inexplicably fast!"
+    scene incar
     "The limo driver begins driving as soon as you are seated"
     t "Awesome, this limo driver knows what's up!"
     t "Wait, you never told the driver what the building looks like!!"
@@ -261,6 +265,7 @@ label limominigame3:
             jump limominigame
 
 label williamlimo2:
+    scene fancydiner_outside
     t "You made it!"
     "*Bzzzt bzzzt*"
     t "A text, now?"
@@ -285,9 +290,10 @@ label williamlimo2:
 #This is the actual date with William
 
 label williamdate:
+    scene fancydinertable
     show bouncer at center:
         xzoom 0.54 yzoom 0.54
-    "You walk to the bottom of the stairs, guarded by a gorgerous velvet rope and a fierce bouncer."
+    "You walk to the beautiful flower arch, guarded by a fierce bouncer."
     menu:
         "Let me through NOW!!" if williamdemand is False:
             $ williamdemand = True
@@ -297,7 +303,7 @@ label williamdate:
         "Uhm, I think Mr. After is expecting someone... me?":
             "The bouncer examines you carefully"
             t "This is making me anxious..."
-            "Then, a voice shouts from atop the stairs..."
+            "Then, a voice shouts from behind the bouncer..."
             w "Let them through!"
             hide bouncer with dissolve
             show bouncer at right with dissolve:
@@ -309,13 +315,13 @@ label williamdate:
             t "Confidence is key!"
             "The bouncer examines you carefully"
             t "This is making me anxious..."
-            "Then, a voice shouts from atop the stairs..."
+            "Then, a voice shouts from behind the bouncer..."
             w "Let them through!"
             hide bouncer with dissolve
             show bouncer at right with dissolve:
                 xzoom 0.54 yzoom 0.54
             b "Good luck. Don't dissapoint."
-            hide bouncer
+            hide bouncer with dissolve
             pass
     show william_happy with dissolve:
         xalign 0.5
