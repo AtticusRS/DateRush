@@ -457,14 +457,14 @@ label williamlimo2:
     t "You made it!"
     "*Bzzzt bzzzt*"
     t "A text, now?"
-    show william_neutral with dissolve:
+    show william_neutral:
         xalign 0.5
         yalign 0.0
     w "'I see a limo has pulled up, one of my limos...'"
     t "One of HIS limos??"
     w "'And the person who got out is looking at their phone-'"
     hide william_neutral
-    show william_angry with dissolve:
+    show william_angry:
         xalign 0.5
         yalign 0.0
     w "'As I'm texting you...'"

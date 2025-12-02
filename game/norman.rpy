@@ -5,6 +5,10 @@ screen norman_timer:
     #^This is a timer I peeled directly off of a video
 
 label norman:
+
+    $ time = 20
+    $ max_time = 20
+
     scene streetside
     if calledtaxi == False:    
         t "Alright! Let's get to Norman!"
@@ -391,12 +395,12 @@ label normandate_normal:
                 yzoom 1.1
             n "Oh..."
             hide norman_neutral
-            show norman_happy with dissolve
+            show norman_happy with
             n "Oh! Haha, you got me! That's surely an abrasive joke though..."
             menu:
                 "I'm not joking, your wardrobe needs work.":
                     hide norman_happy
-                    show norman_shocked with dissolve:
+                    show norman_shocked:
                         xalign 0.5
                         yalign 0.0
                         xzoom 1.1
@@ -406,7 +410,7 @@ label normandate_normal:
                     menu:
                         "I don't think I can be seen in public with you...":
                             hide norman_shocked
-                            show norman_angry with dissolve:
+                            show norman_angry:
                                 xalign 0.5
                                 yalign 0.0
                                 xzoom 1.1
@@ -417,7 +421,7 @@ label normandate_normal:
                             jump start
                         "I don't think I can afford the amount of clothes you'd need to fix your style...":
                             hide norman_shocked
-                            show norman_angry with dissolve:
+                            show norman_angry:
                                 xalign 0.5
                                 yalign 0.0
                                 xzoom 1.1
@@ -441,14 +445,14 @@ label normandate_wetclothes:
         yzoom 1.1
     n "Oh, hello!"
     hide norman_happy
-    show norman_neutral with dissolve:
+    show norman_neutral:
         xalign 0.5
         yalign 0.0
         xzoom 1.1
         yzoom 1.1
     n "It's so great to see you! Your attire is..." 
     hide norman_neutral
-    show norman_happy with dissolve:
+    show norman_happy:
         xalign 0.5
         yalign 0.0
         xzoom 1.1
