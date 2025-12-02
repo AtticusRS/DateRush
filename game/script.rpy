@@ -22,22 +22,48 @@ define r = Character("Rat", color="#BFB6AE")
 
 
 #Defining images!
+
+#Need new streetside images! --
 image streetside = "streetside.png"
 image streetside2 = "streetside.png"
+
+#Need new crimealley image! --
 image crimealley = "crimealley.png"
+
 image gundate = "emptygun_dateroon.png"
+
+#Need new bar images! --
 image outsidebar = "bar_frontoutside.png"
 image bar = "bar.png"
 image barsit = "bar_sit.png"
+
+#Need new cafe images! --
 image cafe = "cafe.png"
+
+#Need new bathroom image! --
 image bathroom = "bathroom.png"
+
 image diner = "fancydiner.png"
 image outsidediner = "fancydiner_outside"
 image fancydinertable = "fancydiner_table"
+
 image incar = "inside of car.png"
+
+#Need new tavern images! --
 image tavern = "tavern.png"
+image tavern_bar = "tavern_bar.png"
+
+#Need new gamer basement image! --
 image gamerbasement = "gamer_basement.png"
+
 image black = "Black.png"
+
+#Need to make a dollar bill on a string (Atticus/William)
+#Need to make a city crosswalk with a white walk sign (Atticus/William)
+#Need to make a city crosswalk with a red hand sign (Atticus/William)
+#Need to make a city crosswalk crowded with cars (Atticus/William)
+#Need to make a vending machine (Atticus/Norman)
+
 
 #Side note for including the bouncer!!!!! Use xzoom 0.54 yzoom 0.54
 
@@ -77,6 +103,7 @@ image gun_shocked = "gun_tilt.png"
 image gun_shocked2 = "gun_tilt_2.png"
 image gun_happy = "gun_side_2.png"
 
+
 #General variables!
 
 default time = 25
@@ -104,6 +131,7 @@ screen time_meter():
         yalign 0.05
         xmaximum 300  
 
+
 #NOW the game starts
 
 #label phone:
@@ -128,6 +156,9 @@ label start:
     $ norman5ask = False
     default norman7ask = False
     $ norman7ask = False
+    default normantimed = 0
+    default moneyspent = False
+    $ moneyspent = False
 
     #William's variables (some are being reset after each start, hence the $)
     default williamdemand = False
@@ -262,5 +293,16 @@ menu:
             "No thanks":
                 hide jessi_happy
                 jump start
+
+    "How does the game work?":
+        t "Good question!"
+        t "In Date Rush, you are late to your date, and must 'rush' to get there."
+        show screen time_meter
+        t "Every choice you make will dwindle the amount of time you have left, and your remaining time can be seen in the top right corner."
+        hide screen time_meter
+        t "To get to your date on time, make each choice with care- using your sense of logic to the best of your ability as some choices will cost you more time than others!"
+        t "Though, not always will the most logical, or efficient, option be as apparent as you may wish!"
+        t "But don't worry! I'll be with you on your journey! Helping lots and lots... for sure..."
+        jump start
 
 return

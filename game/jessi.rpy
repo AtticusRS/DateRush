@@ -5,6 +5,7 @@
 label jessi:
     $ time = 15
     $ max_time = 15
+    
     scene outsidebar
     t "Smoke lingers in the air outside this shabby bar. Theres some other people walking by, but nothing of note. Distantly you could hear an arguement in a nearby alleyway."
     t "An oddly formal bouncer glances your way before going back to scold the familiar woman."

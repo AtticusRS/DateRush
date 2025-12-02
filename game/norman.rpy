@@ -1,12 +1,20 @@
 #This file follows the route of Norman
 
+screen norman_timer:
+    timer 0.01 repeat True action If(normantimed > 0, true=SetVariable('normantimed', normantimed - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
+    #^This is a timer I peeled directly off of a video
+
 label norman:
     scene streetside
-    t "Alright! Let's get to Norman!"
-    
+    if calledtaxi == False:    
+        t "Alright! Let's get to Norman!"
+        pass
+    else:
+        pass
+
     show screen time_meter
     
-    t "You have [time] minutes to get to him, what do you suggest?"
+    t "You have [time] minutes to get to Norman at the Nondescript Cafe, what do you suggest?"
     menu:
         "Walk into the bar" if goneintobar == False:
             t "A bar, why?"
@@ -67,22 +75,27 @@ label crimealley:
 #This is the route where you go into the bar
 
 label normanbar:
+    scene bar
     $ goneintobar = True
     
     #This immediately results in a failure
 
-    $ time = time - 25
+    $ time = time - 2
     t "So, you're in the bar."
     t "You might as well have a drink"
     menu:
         "Don't mind if I do!":
+            $ time = time - 5
             t "Now that you've had a drink, do you want to try and meet up with Norman?"
         "Might as well...":
+            $ time = time - 5
             t "Now that you've had a drink, do you want to try and meet up with Norman?"
     menu:
         "I guess":
+            $ time = time - 2
             jump norman
         "MORE DRINKS!!":
+            $ time = time - 25
             t "That's... an option too."
             "You then drank yourself into oblivion. Hopefully you're of drinking age."
             jump start
@@ -90,6 +103,7 @@ label normanbar:
 #This is the route where you take the taxi
 
 label normantaxi:
+    scene incar
     $ time = time - 5
     $ calledtaxi = True
     "The taxi finally arrives"
@@ -97,11 +111,11 @@ label normantaxi:
     t "Forget it, forget it. The taxi is here now, that's what matters."
     "You get into the taxi and the taxi driver grunts as to acknowledge your presence."
     menu:
-        "I'd like to go to the Nondiscript Cafe please?":
+        "I'd like to go to the Nondescript Cafe please?":
             "The taxi driver grunts"
             t "I guess that means 'okay'."
             pass
-        "I'm in a bit of a rush, I need to go to the Nondiscript Cafe!":
+        "I'm in a bit of a rush, I need to go to the Nondescript Cafe!":
             "The taxi driver grunts"
             t "I don't think they share the same sense of urgency..."
             pass
@@ -112,6 +126,7 @@ label normantaxi:
             jump normantaxifare
         "I will NOT be paying by the way":
             t "You imbecile!"
+            scene streetside
             "In a flash, the driver kicks you out of the car"
             t "That was impressive... and hopefully that taught you a lesson!"
             t "Now we have to live with the consequences, and find some other way to get to Norman on time!"
@@ -135,6 +150,7 @@ label normantaxifare:
             jump normantaxifare
         "Will it be $10?":
             $ time = time - 2
+            $ moneyspent = True
             "There is a pause, but then the driver grunts in agreement"
             t "Whew, I'm pretty sure you only have $10."
             t "I would say that's uh... pretty reasonable."
@@ -145,6 +161,7 @@ label normantaxifare:
             t "Uhm... do you even have $15?"
             "A fly buzzes out of your wallet"
             t "That's NOT reasonable."
+            scene streetside
             "In a flash, the driver kicks you out of the car"
             t "That was impressive, but very unfortunate. Now how will we get to Norman on time?"
             jump norman
@@ -160,7 +177,49 @@ label normantaxi2:
             "The driver grunts and ever so slightly picks up the pace"
             t "That... is somewhat better..."
         "Say nothing":
+            $ time = time - 1
+            t "The driver is going to take foreeever..."
+            t "Unless you do something??"
+            menu:
+                "Refrain from speaking":
+                    $ time = time - 1
+                    t "There's no helping you is there?"
+                    t "I can wait. Can Norman?? I guess he'll have to."
+                    $ time = time - 9
+                    "You slowly, but surely, arrive at the Cafe"
+                    jump norman_predate
+                "Excuse me driver, can you please go faster?":
+                    $ time = time - 1
+                    "The driver grunts and ever so slightly picks up the pace"
+                    t "That... is somewhat better..."
+    t "If you're needing to hurry it up, you're going to have to ask again"
+    menu:
+        "Driver, may I plead that you increase your speed once again?":
+            $ time = time - 1
+            "The air thickens with silence, but the driver speeds up- but not a lot"
+            t "Okay, that's for sure better... could be better..."
+            t "But I feel like it's not safe to ask again, unless you're willing to take that risk?"
+        "Stay silent":
+            t "If you're fine with this, I'm fine with this."
             $ time = time - 5
+            "You arrive at the Cafe slowly, but faster than you would've if you hadn't asked"
+            jump norman_preadate
+    menu:
+        "How about going just a little faster, Driver?":
+            $ time = time - 1
+            scene streetside
+            "The driver speedily ejects you from the vehicle"
+            t "What- what just happened?"
+            t "How are we back at the start- how-"
+            t "Well maybe that was one question too many."
+            t "How will we get to Norman now???"
+            jump norman
+        "Withhold any requests to increase the Ewber's speed":
+            $ time = time - 1
+            t "That's probably for the best, I'm sure the driver will appreciate it."
+            $ time = time - 2
+            "You arrive at the Cafe at decently good time, definitely faster than you would if you'd never asked"
+            jump norman_predate
 
 
 #This is the route where you continue down the street
@@ -174,7 +233,7 @@ label continuestreet:
     t "What will you do?"
     menu:
         "Go home and change":
-            $ time = time - 5
+            $ time = time - 7
             t "Oh boy... you're already running low on time."
             $ wetclothes = False
             "You go home and change... it takes a while."
@@ -184,14 +243,104 @@ label continuestreet:
                     t "How dreary. Truly dissapointing. But, there's no arguing with the fat chance you're going to be incredibly late."
                     jump normanbar
                 "I'm not giving up yet!":
+                    $ time = time - 1
                     t "That's the spirit! You might have a chance afterall, old chum."
         "Continue on... in wet clothes":
-            $ time = time - 2
+            $ time = time - 1
             t "Your determination is admirable! It seems you understand how little time you have to spare."
             t "Let us continue then!"
+    $ normantimed = 5
+    $ timer_range = 5
+    $ timer_jump = 'puddle_accident'
+    menu:
+        "Watch out for that puddle!":
+            $ time = time - 1
+            t "Those are some quick reflexes you have!"
+            jump continuestreet2
+        "Watch out for that what?":
+            jump puddle_accident
+
+    label puddle_accident:
+        $ time = time - 2
+        t "Aww what? You just stepped in a puddle, a big one to be exact..."
+        if wetclothes == True:
+            t "And now your clothes are even more wet. Great. Hopefully Norman likes them soggy."
+            t "Do you want to change this time?"
+            menu:
+                "Yes":
+                    t "I can understand your choice, there's no reason to be absolutely drenched." 
+                    t "Though we don't have all of the time in the world."
+                    $ time = time - 8
+                    $ wetclothes = False
+                    "You go home and change"
+                    jump continuestreet2
+                "I guess not":
+                    $ time = time - 1
+                    t "Let's get this over with!"
+                    jump continuestreet2
+            pass
+        else:
+            $ wetclothes = True
+            t "And now your clothes are wet, again. This is great, just great."
+            t "Do you want to change again?"
+            menu:
+                "Ugh, yes":
+                    t "I don't even blame you, honeslty."
+                    $ time = time - 8
+                    "You go home and change, AGAIN"
+                    t "But we are running out of time!"
+                    jump continuestreet2
+                "I guess not":
+                    $ time = time - 1
+                    t "I'm sure everything will work out! Hopefully..."
+                    jump continuestreet2
+            pass
+
+    label continuestreet2:
+        #scene vending_machine
+        t "Oh hey, look! A vending machine!"
+        t "Do you need some extra help getting to Norman? I'm sure a snack would do wonders!"
+        t "But you also don't have that much money, can you afford it?"
+        menu:
+            "Yea let me buy something" if moneyspent == False:
+                $ time = time + 10
+                $ moneyspent = True
+                "You buy yourself a snack and become motivated! (Gain 10 minutes)"
+                t "Delicious!"
+                jump continuestreet3
+            "Nah, I'd rather not":
+                $ time = time - 1
+                t "Sure."
+
+    label continuestreet3:
+        scene streetside
+        t "Oh is that a dry cleaner down the street?"
+        if wetclothes == True:
+            t "Well, you could save lots of time by getting your clothes dried here! It just might cost you some money!"
+            menu:
+                "Get your clothes dried" if moneyspent == False:
+                    $ time = time - 3
+                    $ wetclothes = False
+                    "You get your clothes dried at the dry cleaner, and it only takes 3 minutes- somehow"
+                    t "Oh hey, is that the Cafe just up ahead?"
+                    jump norman_predate
+                "Carry on in wet clothes":
+                    $ time = time - 1
+                    t "I see, don't have the money or the time? Shameful."
+                    t "Or perhaps you are just very adamant on wearing wet clothes? Less shameful?"
+                    t "Oh hey, it looks like the Cafe is just up ahead!"
+                    jump norman_predate
+        else:
+            t "Looks like you could've saved some time by going here, instead of back home. Oops!"
+            t "Live and learn or something like that."
+            t "Oh hey, is that the Cafe just up ahead?"
+            jump norman_predate
     
     #Each time you reach the destination of your date, the narrator will check your time and see if you made it on time or not.
 
+label norman_predate:
+    scene cafe
+    t "You're finally here!"
     menu:
         "Head into the cafe and meet Norman":
             t "Alright! Let's check the time first, to see if Norman is going to be there or not."
@@ -285,8 +434,26 @@ label normandate_normal:
 
 label normandate_wetclothes:
     $ datednorman = True
+    show norman_happy:
+        xalign 0.5
+        yalign 0.0
+        xzoom 1.1
+        yzoom 1.1
     n "Oh, hello!"
-    n "It's so great to see you! Your attire is... stunningly unique!"
+    hide norman_happy
+    show norman_neutral with dissolve:
+        xalign 0.5
+        yalign 0.0
+        xzoom 1.1
+        yzoom 1.1
+    n "It's so great to see you! Your attire is..." 
+    hide norman_neutral
+    show norman_happy with dissolve:
+        xalign 0.5
+        yalign 0.0
+        xzoom 1.1
+        yzoom 1.1
+    n "Stunningly unique!"
     menu:
         "Oh yea... lol, about that...":
             pass
