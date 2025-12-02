@@ -12,6 +12,7 @@ label william_after:
     "*Bzzzt bzzzt*"
     t "Hm? It seems you've recieved a text from somebody."
     t "Oh wow, the gentlemen you've chosen has already responded!"
+    play sound "sounds/William_Hello.mp3"
     show william_happy with dissolve:
         xalign 0.5
         yalign 0.0
@@ -362,6 +363,7 @@ label predate_william:
     t "Now, speaking of Mr. After, where is he?"
     "*Bzzzt bzzzt*"
     t "I wonder if it's William..."
+    play sound "sounds/William_Happy1.mp3"
     show william_happy with dissolve:
         xalign 0.5
         yalign 0.0
@@ -457,6 +459,7 @@ label williamlimo2:
     t "You made it!"
     "*Bzzzt bzzzt*"
     t "A text, now?"
+    play sound "sounds/William_Neutral.mp3"
     show william_neutral:
         xalign 0.5
         yalign 0.0
@@ -464,6 +467,7 @@ label williamlimo2:
     t "One of HIS limos??"
     w "'And the person who got out is looking at their phone-'"
     hide william_neutral
+    play sound "sounds/William_Angry1.mp3"
     show william_angry:
         xalign 0.5
         yalign 0.0
@@ -492,6 +496,7 @@ label williamdate:
             "The bouncer examines you carefully"
             t "This is making me anxious..."
             "Then, a voice shouts from behind the bouncer..."
+            play sound "sounds/William_Shocked2.mp3"
             w "Let them through!"
             hide bouncer with dissolve
             show bouncer at right with dissolve:
@@ -504,6 +509,7 @@ label williamdate:
             "The bouncer examines you carefully"
             t "This is making me anxious..."
             "Then, a voice shouts from behind the bouncer..."
+            play sound "sounds/William_Shocked2.mp3"
             w "Let them through!"
             hide bouncer with dissolve
             show bouncer at right with dissolve:
@@ -511,6 +517,7 @@ label williamdate:
             b "Good luck. Don't dissapoint."
             hide bouncer with dissolve
             pass
+    play sound "sounds/William_Happy2.mp3"
     show william_happy with dissolve:
         xalign 0.5
         yalign 0.0

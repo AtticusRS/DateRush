@@ -374,6 +374,7 @@ label norman_predate:
 
 label normandate_normal:
     $ datednorman = True
+    play sound "sounds/Norman_Happy1.mp3"
     show norman_happy:
         xalign 0.5
         yalign 0.0
@@ -388,6 +389,7 @@ label normandate_normal:
             pass
         "Uhm yea, actually... your outfit kind of sucks":
             hide norman_happy
+            play sound "sounds/Norman_Shocked1.mp3"
             show norman_neutral:
                 xalign 0.5
                 yalign 0.0
@@ -395,11 +397,17 @@ label normandate_normal:
                 yzoom 1.1
             n "Oh..."
             hide norman_neutral
-            show norman_happy with
+            play sound "sounds/Norman_Happy2.mp3"
+            show norman_happy:
+                xalign 0.5
+                yalign 0.0
+                xzoom 1.1
+                yzoom 1.1
             n "Oh! Haha, you got me! That's surely an abrasive joke though..."
             menu:
                 "I'm not joking, your wardrobe needs work.":
                     hide norman_happy
+                    play sound "sounds/Norman_Angry1.mp3"
                     show norman_shocked:
                         xalign 0.5
                         yalign 0.0
@@ -410,6 +418,7 @@ label normandate_normal:
                     menu:
                         "I don't think I can be seen in public with you...":
                             hide norman_shocked
+                            play sound "sounds/Norman_Angry2.mp3"
                             show norman_angry:
                                 xalign 0.5
                                 yalign 0.0
@@ -421,6 +430,7 @@ label normandate_normal:
                             jump start
                         "I don't think I can afford the amount of clothes you'd need to fix your style...":
                             hide norman_shocked
+                            play sound "sounds/Norman_Angry2.mp3"
                             show norman_angry:
                                 xalign 0.5
                                 yalign 0.0
@@ -438,6 +448,7 @@ label normandate_normal:
 
 label normandate_wetclothes:
     $ datednorman = True
+    play sound "sounds/Norman_Happy1.mp3"
     show norman_happy:
         xalign 0.5
         yalign 0.0
@@ -445,6 +456,7 @@ label normandate_wetclothes:
         yzoom 1.1
     n "Oh, hello!"
     hide norman_happy
+    play sound "sounds/Norman_Neutral2.mp3"
     show norman_neutral:
         xalign 0.5
         yalign 0.0
@@ -452,6 +464,7 @@ label normandate_wetclothes:
         yzoom 1.1
     n "It's so great to see you! Your attire is..." 
     hide norman_neutral
+    play sound "sounds/Norman_Happy2.mp3"
     show norman_happy:
         xalign 0.5
         yalign 0.0
