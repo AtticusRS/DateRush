@@ -1,11 +1,7 @@
 #This file follows the route of Norman
 
-screen norman_timer:
-    timer 0.01 repeat True action If(normantimed > 0, true=SetVariable('normantimed', normantimed - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
-    #^This is a timer I peeled directly off of a video
-
 label norman:
-
+    stop music fadeout 3.0
     $ time = 20
     $ max_time = 20
 
@@ -21,6 +17,7 @@ label norman:
     t "You have [time] minutes to get to Norman at the Nondescript Cafe, what do you suggest?"
     menu:
         "Walk into the bar" if goneintobar == False:
+            $ time = time - 1
             t "A bar, why?"
             t "Are you sure?"
             menu:
@@ -28,17 +25,19 @@ label norman:
                     t "I think you actually have a problem..."
                     jump normanbar
                 "No actually":
+                    $ time = time - 1
                     t "You had me worried for a moment there!"
                     jump norman
         "Continue down the street":
-            $ time = time - 2
+            $ time = time - 1
             t "The obvious choice."
             jump continuestreet
         "Get a taxi" if calledtaxi == False:
+            $ time = time - 1
             t "The timely choice. You pull out your phone and call a Ewber, although the closest one is... definitely full of character."
             jump normantaxi
         "Investigate the nearby alley way":
-            $ time = time - 2
+            $ time = time - 1
             t "You don't see anything exactly remarkable. Cars rush down the road as you stand on the cracked pavement. You really should get moving now."
             t "Especially because you don't have all of the time in the world..."
             jump crimealley
@@ -253,15 +252,18 @@ label continuestreet:
             $ time = time - 1
             t "Your determination is admirable! It seems you understand how little time you have to spare."
             t "Let us continue then!"
-    $ normantimed = 5
-    $ timer_range = 5
+    $ timed = 3
+    $ timer_range = 3
     $ timer_jump = 'puddle_accident'
+    show screen countdown
     menu:
         "Watch out for that puddle!":
+            hide screen countdown
             $ time = time - 1
             t "Those are some quick reflexes you have!"
             jump continuestreet2
         "Watch out for that what?":
+            hide screen countdown
             jump puddle_accident
 
     label puddle_accident:
@@ -301,7 +303,7 @@ label continuestreet:
             pass
 
     label continuestreet2:
-        #scene vending_machine
+        scene vending_machine
         t "Oh hey, look! A vending machine!"
         t "Do you need some extra help getting to Norman? I'm sure a snack would do wonders!"
         t "But you also don't have that much money, can you afford it?"

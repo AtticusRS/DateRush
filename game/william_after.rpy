@@ -7,6 +7,7 @@ screen william_timer:
     #It's supposed to send the player to the next description of a building when the timer runs out
 
 label william_after:
+    stop music fadeout 3.0
     scene streetside
     "You click on the finely aged man's profile"
     "*Bzzzt bzzzt*"
@@ -48,9 +49,11 @@ label william_after:
             pass
         menu:
             "I'll walk!":
+                $ time = time - 1
                 t "Right! It says more about your character."
                 jump on_foot
             "Limo it is!":
+                $ time = time - 1
                 t "Are you sure?"
                 menu:
                     "Pester me no longer! I am sure of my choice!":
@@ -156,31 +159,38 @@ label william_after:
                 t "Soo, you're still walking!"
                 t "And not stepping on any cracks, I see!"
                 t "Who knows what could've happened if you did..."
-        #show dollar_bill with dissolve
+        show dollar_bill with dissolve:
+            xalign 0.5
+            xzoom 0.8
+            yzoom 0.8
         t "Hey look, there's a dollar bill hanging in the air!"
         menu:
             "Grab the dollar bill":
                 $ time = time - 2
                 "You slowly reach for the dollar bill, getting very very very close-"
-                #hide dollar_bill with dissolve
+                hide dollar_bill with dissolve
                 "But the dollar bill is pulled away"
                 t "You actually believed that?! Now you just look stupid and wasted some time."
             "Pass up on the dollar bill":
                 $ time = time - 1
-                #hide dollar_bill with dissolve
+                hide dollar_bill with dissolve
                 "You stride confidently past the dollar bill"
                 t "I'll give you credit for that, I totally thought you were going to fall for that!"
-        #scene crosswalk_white
+        scene crosswalk_white:    
+            xzoom 0.85
+            yzoom 0.85
         t "Hey, look, a crosswalk!"
-        #scene crosswalk_red
+        scene crosswalk_red:
+            xzoom 0.85
+            yzoom 0.85
         t "Oh no, the hand appeared on the sign! Do you go now or wait, like a respectful citizen?"
         menu:
             "Go now!":
                 $ time = time - 1
-                #scene streetside
+                scene streetside
                 "You rush across swiftly"
                 t "Phew! You made it-"
-                #play sound "audio/carsrushing.mp3"
+                play sound "sounds/CarsRushing1.mp3"
                 "The sound of rushing cars fills the space behind you"
                 t "With not-so much time to spare..."
                 t "It's best not to dwell on it!"
@@ -196,20 +206,29 @@ label william_after:
                 menu:
                     "Step forward":
                         $ time = time - 1
-                        #scene crosswalk_busy
+                        scene crosswalk_busy:
+                            xzoom 0.85
+                            yzoom 0.85
+                        play sound "sounds/CarsRushing1.mp3"
                         "As you begin to step forward, cars rush forward and fill the street"
                         t "Oh... wow!"
                     "Wait some more":
                         $ time = time - 1
-                        #scene crosswalk_busy
                         t "Are you sure, maybe it'd be better to-"
+                        scene crosswalk_busy:
+                            xzoom 0.85
+                            yzoom 0.85
+                        play sound "sounds/CarsRushing1.mp3"
                         "Cars rush forward, and fill the street before you"
                         t "Oh... wow!"
                 t "Well, now we have to wait for these to pass..."
                 $ time = time - 4
-                #scene crosswalk_white with dissolve
+                scene crosswalk_white with dissolve:         
+                    xzoom 0.85
+                    yzoom 0.85
                 "The cars take 4 minutes to pass"
                 t "Alright, at least you can cross safely now!"
+        scene streetside
         t "Oh what the, is that a homeless person?"
         show gun_happy at left with dissolve
         t "They kind of look like they're struggling, should you help?"
@@ -254,22 +273,28 @@ label william_after:
     label skipping_along:
         "You begin skipping"
         t "Alright, I could get behind this! Skipping! Yea!"
-        #show dollar_bill
-        $ williamtimed = 3
+        show dollar_bill:
+            xalign 0.5
+            xzoom 0.8
+            yzoom 0.8
+        $ timed = 3
         $ timer_range = 3
         $ timer_jump = 'dollarbill_accident'
+        show screen countdown
         menu:
             "Watch out for that floating dollar bill!":
                 $ time = time - 1
-                #hide dollar_bill
+                hide screen countdown
+                hide dollar_bill
                 t "Woah nice dodge!"
+                hide screen countdown
                 jump skipping_along2
             "Wait, what's going on? I have reason to believe there is an action I should take to prevent a catastrophe, but I'm entirely unaware of the consequences of my inability to perceive the danger at hand!":
                 jump dollarbill_accident
 
     label dollarbill_accident:
         $ time = time - 8
-        #hide dollar_bill
+        hide dollar_bill
         show black
         "The dollar bill hits you in your face, causing you to lose your vision and fall over at the same time"
         hide black with dissolve
@@ -283,29 +308,41 @@ label william_after:
     label skipping_along2:
         t "Let's keep an eye out for more obstacles like that!"
         t "Skipping at a speed like this, you'll never know when something is going to come at you next!"
-        #scene crosswalk_white
+        scene crosswalk_white:
+            xzoom 0.85
+            yzoom 0.85
         t "Oh, a crosswalk-"
-        #scene crosswalk_red
+        scene crosswalk_red:
+            xzoom 0.85
+            yzoom 0.85
         t "But the window to cross is closing!"
         t "What do you do?"
-        $ williamtimed = 5
-        $ timer_range = 5
+        $ timed = 3
+        $ timer_range = 3
         $ timer_jump = 'crosswalk_accident'
+        show screen countdown
         menu:
             "Cross now!":
+                hide screen countdown
                 $ time = time - 1
                 "You fly through the crosswalk, making it to the other side unscathed"
                 t "Oh whew! That could've been bad-"
-                #play sound "audio/carsrushing.mp3"
+                play sound "sounds/CarsRushing1.mp3"
                 "The sound of rushing cars fills the space behind you"
                 t "But it wasn't! Just think about that... only that..."
                 jump skipping_along3
             "Wait, wait, wait!":
+                $ time = time - 1
+                hide screen countdown
                 jump crosswalk_accident
 
     label crosswalk_accident:
+        scene crosswalk_busy:
+            xzoom 0.85
+            yzoom 0.85
         "As you attempt to stop before the crosswalk, your momentum causes you to trip, launching you into the road as cars are pulling up"
         t "Oh what-"
+        play sound "sounds/CarsRushing1.mp3"
         show black
         t "You're gonna have to wait to date William until you're out of the hospital..."
         t "Sorry!"
@@ -316,14 +353,17 @@ label william_after:
         t "That could've been bad!"
         t "Like was saying, it's always best to watch out for these things."
         show gun_happy
-        $ williamtimed = 3
+        $ timed = 3
         $ timer_range = 3
         $ timer_jump = 'homeless_accident'
+        show screen countdown
         menu:
             "Is there something in the way?":
+                hide screen countdown
                 jump homeless_accident
             "There is an impediment in the way and I must avoid it! It is necessary to my current objective to employ my utmost of effort in order to circumvent this incredibly pressing issue!":
                 $ time = time - 1
+                hide screen countdown
                 hide gun_happy with dissolve
                 t "Whew, that was super close!"
                 jump skipping_along4
@@ -412,44 +452,48 @@ label limominigame:
     else:
         t "The driver moved on to the next building!"
         pass
-    $ williamtimed = 5
+    $ timed = 5
     $ timer_range = 5
     $ timer_jump = 'limominigame2'
+    show screen countdown
     menu:
         "Stop at this red building with gold accents that's... short?":
             $ time = time - 5
             t "Noo, that's wrong!"
             jump limominigame2
         "Next building please!":
+            hide screen countdown
             $ time = time - 1
             jump limominigame2
     
 label limominigame2:
     t "The driver moved on to the next building!"
-    $ time = time - 1
-    $ williamtimed = 5
+    $ timed = 5
     $ timer_range = 5
     $ timer_jump = 'limominigame3'
+    show screen countdown
     menu:
         "Stop at this red building with gold accents that's... tall?":
             t "Yes! You've found it!"
             jump williamlimo2
         "Next building please!":
+            hide screen countdown
             $ time = time - 1
             jump limominigame3
 
 label limominigame3:
     t "The driver moved on to the next building!"
-    $ time = time - 1
-    $ williamtimed = 5
+    $ timed = 5
     $ timer_range = 5
     $ timer_jump = 'limominigame'
+    show screen countdown
     menu:
         "Stop at this blue building with gold accents that's... tall!":
             $ time = time - 5
             t "Noo, that's wrong!"
             jump limominigame
         "Next building please!":
+            hide screen countdown
             $ time = time - 1
             t "Guess that means we'll have to circle the block..."
             jump limominigame
@@ -483,6 +527,7 @@ label williamlimo2:
 
 label williamdate:
     scene fancydinertable
+    play music "sounds/BgMusic.mp3" fadein 2.0
     show bouncer at center:
         xzoom 0.54 yzoom 0.54
     "You walk to the beautiful flower arch, guarded by a fierce bouncer."
@@ -525,6 +570,7 @@ label williamdate:
     $ datedwilliamafter = True
     hide william_happy
     t "You've dated William!"
+    stop music
     jump start
 
 return

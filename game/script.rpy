@@ -23,6 +23,8 @@ define r = Character("Rat", color="#BFB6AE")
 
 #Defining images!
 
+image vending_machine = "VendingMacine.png"
+
 #Need new streetside images! --
 image streetside = "streetside.png"
 image streetside2 = "streetside.png"
@@ -58,16 +60,15 @@ image gamerbasement = "gamer_basement.png"
 
 image black = "Black.png"
 
-#Need to make a dollar bill on a string (Atticus/William)
-#Need to make a city crosswalk with a white walk sign (Atticus/William)
-#Need to make a city crosswalk with a red hand sign (Atticus/William)
-#Need to make a city crosswalk crowded with cars (Atticus/William)
-#Need to make a vending machine (Atticus/Norman)
-
+image crosswalk_white = "crosswalk_white.png"
+image crosswalk_red = "crosswalk_red.png"
+image crosswalk_busy = "crosswalk_busy.png"
 
 #Side note for including the bouncer!!!!! Use xzoom 0.54 yzoom 0.54
 
 image bouncer = "bouncer.png"
+
+image dollar_bill = "Dollarbill.PNG"
 
 image rat = "rat_notlooking.png"
 image ratsee = "rat_look.png"
@@ -119,6 +120,23 @@ default datedjessi = False
 default datedwilliamafter = False
 default numberofdates = 0
 
+#The following code is pertinent to the general minigame timer
+transform alpha_dissolve:
+    alpha 0.0
+    linear 0.5 alpha 1.0
+    on hide:
+        linear 0.5 alpha 0.0
+
+default timed = 0
+default timer_jump = 0
+default timer_range = 0
+
+screen countdown:
+    timer 0.01 repeat True action If(timed > 0, true=SetVariable('timed', timed - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
+    #^This is a timer I peeled directly off of a video
+
+    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve
+
 #Code for visible time/resource meter!
 #When you want to show the meter on screen, type "show screen time_meter"
 #Don't forget to hide the time meter!!!! It will persist everywhere if you don't. Hide it with "hide screen time_meter"
@@ -138,7 +156,7 @@ screen time_meter():
 
 label start:
     scene phone
-
+    play music "sounds/BgMusic.mp3"
     hide screen time_meter
 
     #Norman's variables (some are being reset after each start, hence the $)
@@ -156,16 +174,12 @@ label start:
     $ norman5ask = False
     default norman7ask = False
     $ norman7ask = False
-    default normantimed = 0
     default moneyspent = False
     $ moneyspent = False
 
     #William's variables (some are being reset after each start, hence the $)
     default williamdemand = False
     $ williamdemand = False
-    default williamtimed = 0
-    default timer_jump = 0
-    default timer_range = 0
     default firsttimewithtimer = True
     $ firstimewithtimer = True
     default thinkingalot = False
@@ -300,6 +314,7 @@ menu:
         show screen time_meter
         t "Every choice you make will dwindle the amount of time you have left, and your remaining time can be seen in the top right corner."
         hide screen time_meter
+        t "Additionally, when a bar appears at the bottom of your screen, underneath your choices, that is the indicator of a quick time event."
         t "To get to your date on time, make each choice with care- using your sense of logic to the best of your ability as some choices will cost you more time than others!"
         t "Though, not always will the most logical, or efficient, option be as apparent as you may wish!"
         t "But don't worry! I'll be with you on your journey! Helping lots and lots... for sure..."

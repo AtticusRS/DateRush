@@ -3,6 +3,7 @@
 #add interupptions
 
 label jessi:
+    stop music fadeout 3.0
     $ time = 15
     $ max_time = 15
     

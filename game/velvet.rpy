@@ -11,6 +11,7 @@
 #fix dialouge
 
 label velvet:
+    stop music fadeout 3.0
     $ max_time = 15
     $ time = 15
 
