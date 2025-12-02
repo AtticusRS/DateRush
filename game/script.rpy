@@ -4,21 +4,21 @@
 # name of the character.
 
 #Defining characters!
-define t = Character("Narrator")
-define g = Character("Gun Wick")
-define n = Character("Norman")
+define t = Character("Narrator", color="#FAFAFA")
+define g = Character("Gun Wick", color="#BD1755")
+define n = Character("Norman", color="#C0D690")
 
-define v = Character("Velvet")
-define o = Character("Dragon Repossessor")
-define rg = Character("Reg the Goblin")
+define v = Character("Velvet", color="#C079DB")
+define o = Character("Dragon Repossessor", color="#2A528C")
+define rg = Character("Reg the Goblin", color="#329126")
 
-define j = Character("Jessi")
-define b = Character("Bouncer")
-define e = Character("Eavesdropper")
+define j = Character("Jessi", color="#4627C4")
+define b = Character("Bouncer", color="#F0310C")
+define e = Character("Eavesdropper", color="#5C769E")
 
-define w = Character("William After")
-define c = Character("Cat")
-define r = Character("Rat")
+define w = Character("William After", color="#6F1F94")
+define c = Character("Cat", color="#EBA210")
+define r = Character("Rat", color="#BFB6AE")
 
 
 #Defining images!
@@ -78,7 +78,12 @@ image gun_shocked2 = "gun_tilt_2.png"
 image gun_happy = "gun_side_2.png"
 
 #General variables!
+
 default time = 25
+
+#When a choice costs time, write "$ time = time - (the amount that is being subtracted)"
+
+default max_time = 25
 default datednarrator = False
 default datedgunwick = False
 default datednorman = False
@@ -87,12 +92,26 @@ default datedjessi = False
 default datedwilliamafter = False
 default numberofdates = 0
 
+#Code for visible time/resource meter!
+#When you want to show the meter on screen, type "show screen time_meter"
+#Don't forget to hide the time meter!!!! It will persist everywhere if you don't. Hide it with "hide screen time_meter"
+
+screen time_meter():
+    bar:
+        value time
+        range max_time
+        xalign 0.95
+        yalign 0.05
+        xmaximum 300  
+
 #NOW the game starts
 
 #label phone:
 
 label start:
     scene phone
+
+    hide screen time_meter
 
     #Norman's variables (some are being reset after each start, hence the $)
     default wetclothes = False

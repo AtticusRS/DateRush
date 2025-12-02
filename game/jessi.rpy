@@ -3,7 +3,14 @@
 #add interupptions
 
 label jessi:
+<<<<<<< HEAD
     $ time = 15
+=======
+    $ time = 20
+    $ max_time = 20
+
+    #The max_time function allows the timer to work properly!
+>>>>>>> 58b3e40cb778292c0f172ce787ede83185ca6182
 
     scene outsidebar
     t "Smoke lingers in the air outside this shabby bar. Theres some other people walking by, but nothing of note. Distantly you could hear an arguement in a nearby alleyway."
@@ -23,7 +30,11 @@ label jessi:
 
 menu:
     "Talk to the Bouncer":
+<<<<<<< HEAD
         t "The...man? Thats..thats a dog.That is absoulutly a dog."
+=======
+        t "The...man? Thats..thats a dog. That is absoulutely a dog."
+>>>>>>> 58b3e40cb778292c0f172ce787ede83185ca6182
         t "Either way he looks you up and down. Your semi-formal attire speaks volumes."
         b "This place is not for you. The rougher customers here will not take kindly to your presence."
         b "I'm sorry but its best if you leave."
@@ -48,20 +59,20 @@ label bouncertime:
             t "Fail to avoid the Bouncer's fist collide with your head."
             hide bouncer
             scene black
-            $ time - 10
+            $ time = time - 10
             t "You're unconcious before you even hit the floor."
             $ blackeye = True
             jump wakeup
         "Flirt":
             t "He stares at you for an awkwardly long period, expression unchanged."
             b "Flattering, but I'm married."
-            $ time - 3
+            $ time = time - 3
             b "It's really best you leave now."
             jump bouncerconvo
         "Bribe":
             t "The man shakes his head, frowning."
             b "Moderatly insulting for you to believe a man in this expensive of a suit would need money."
-            $ time - 3
+            $ time = time - 3
             b "It's really best you leave now."
             jump bouncerconvo
 
@@ -95,7 +106,7 @@ label bouncerconvo:
             t "The large man cracks his knuckles and stares you down. Perhaps its better to leave without a hospital bill this time."
             jump start
         "The password is absolutely Worsheshire.":
-            $ time - 5
+            $ time = time - 5
             b "What."
             t "....what?"
             e "HAHA! THATS HILARIOUS."
@@ -124,7 +135,7 @@ label distractionE:
             t "The stranger that had just rudely interupted us was now annoying the Bouncer. Nows the time- QUIETLY."
             jump intobar
         "Talk to the stranger":
-            $ time - 5
+            $ time = time - 5
             t "Now why waste time like this?"
             e "For the secrects man! the LLLLLOOOREEE ya dig?"
             t "...How can you hear me? This is wrong. Sorry, but this can't happen. We're leaving."
