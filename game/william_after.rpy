@@ -326,6 +326,7 @@ label william_after:
             "Cross now!":
                 hide screen countdown
                 $ time = time - 1
+                scene streetside
                 "You fly through the crosswalk, making it to the other side unscathed"
                 t "Oh whew! That could've been bad-"
                 play sound "sounds/CarsRushing1.mp3"
