@@ -80,6 +80,7 @@ menu:
     "Investigate the alley":
         jump gun_wick
     "Shamefully walk back":
+        $ time - 2
         t "Now don't let that black eye stop you on this quest for love"
         jump Eenter
 
@@ -140,6 +141,7 @@ show jessi_happy with dissolve:
     xzoom 0.4
 t "The bar is full of criminals, monsters, gangsters. If a building could be sugar and everything nice, then here was all that spice."
 t "You can spot Jessi at the bar just a few steps away."
+t "You made it! With about [time] minute(s) left too!"
 
 menu:
     "Go up to Jessi":

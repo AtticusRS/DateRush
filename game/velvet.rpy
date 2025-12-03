@@ -43,7 +43,7 @@ show velvet_neutral with dissolve:
 
 t "Immediately engaged with the action, the world itself leaks into reality until you find yourself sitting in the tavern."
 t "Despite your flawlessly executed pick-up line, The tiefling, Velvet, doesn't seem particularly engaged."
-v "Hmph. I havent heard that one before. Honestly, maybe we could we get to know eachother instead of just 'diving right in?' You've got some nerve."
+v "Honestly, maybe we could we get to know eachother instead of just 'diving right in?'"
 t "Now remember, no date goes well when the other isn't responding. Dont get distracted Player!"
 
 
@@ -104,7 +104,28 @@ menu:
             xzoom 0.5 yzoom 0.5
         v "Well SORRY if that's an issue. Hmph! I can just go--you CLEARLY have no taste. Sorry, but not sorry."
         jump start
+    "HEY! HEY YOU!":
+        jump HEY!
 
+label HEY!
+e "YEAH! YOU! I HAVE A FEW WORDS FOR YOU!"
+t "Oh not this nuisance. Really its best to igno-"
+e "OI! I have the talking stick. ME!"
+
+menu:
+    "Back to Velvet":
+        t "Good."
+        jump velvetquestion
+    "What do they want?":
+        t "Oh good heavens.. Now is not the time."
+        e "IT IS! YOU RAT!"
+        t "An off screen character insulting you, how important. Go back to the date please."
+        e "I ain't talkin to the Player."
+        t "Me then? Listen here you..."
+        hide velvet_happy
+        show velvet_angry
+        $ time - 15
+        
 label velvetdate:
     $ datedvelvet = True
     
