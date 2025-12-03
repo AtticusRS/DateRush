@@ -1,15 +1,5 @@
 #The file follows the route of Velvet
 
-#This timeline is dialouge heavy, SO for the time mechanic we'd prbably need to figure out things here 
-#add bar fight
-#add illusion of random- roll more dice
-#dnd actions! NOT DND
-#use up more timeee
-#IMPORTANTTTT! The sprites always layer ontop of eachother instead of hiding the previous. Still having sorted that out yet.
-
-
-#fix dialouge
-
 label velvet:
     stop music fadeout 3.0
     $ max_time = 15
@@ -37,11 +27,11 @@ menu:
     "Help Reg":
         t "You step in to intervene, putting yourself between the officals and the goblin."
             # idk what to put here but I need OPTIONS people
-        $ time = time - 3
+        $ time = time - 5
     "Help Officials":
         t "You block the goblins escape as the officials close in. They rummage through his bag and pull out..."
         t "A entire dragon. A baby one, but still. It's actually kind of cute for a dangerous, fire monster! It appears to be sleeping soundly, not aware of the chaos going on even as it's taken out of the bag."
-        $ time = time - 1
+        $ time = time - 5
     "Stay a distant bystander":
         t "Whatever-- That's not your problem."
         jump intoDNDsuccess
@@ -54,6 +44,7 @@ show velvet_neutral with dissolve:
 t "Immediately engaged with the action, the world itself leaks into reality until you find yourself sitting in the tavern."
 t "Despite your flawlessly executed pick-up line, The tiefling, Velvet, doesn't seem particularly engaged."
 v "Hmph. I havent heard that one before. Honestly, maybe we could we get to know eachother instead of just 'diving right in?' You've got some nerve."
+t "Now remember, no date goes well when the other isn't responding. Dont get distracted Player!"
 
 
 menu:
@@ -108,7 +99,7 @@ menu:
         jump velvetdate
 
     "A mouse? You... hang out with rodents?":
-        hide velvet_neutral
+        hide velvet_happy
         show velvet_angry:
             xzoom 0.5 yzoom 0.5
         v "Well SORRY if that's an issue. Hmph! I can just go--you CLEARLY have no taste. Sorry, but not sorry."
@@ -145,6 +136,8 @@ menu:
         t "She frowns and looks away from you. For a moment, the two of you sit in uncomfortable silence."
         v "I hope you actually came here for a date. I'm a person, not a zoo animal for you to stare at."
         jump negativeF
+    "QUICK LOOK OVER THERE!":
+        jump DPS_Problem
 
 
 label positiveF:
