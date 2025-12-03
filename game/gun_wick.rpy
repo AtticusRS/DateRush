@@ -58,12 +58,14 @@ label crimealley2:
                     hide gun_angry with dissolve
                     "A loud bang rings out and your vision fades"
                     hide black
+                    stop music
                     jump start
 
     g "Well... a 'beauty' you say? That's quite delightful of you!"
     g "I'm quite enamored by your lovely choice of words."
     $ datedgunwick = True
     g "You've spoken your way to my heart!"
+    stop music
     jump start
 
 #I'm not yet sure where to take this

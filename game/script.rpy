@@ -64,6 +64,8 @@ image crosswalk_white = "crosswalk_white.png"
 image crosswalk_red = "crosswalk_red.png"
 image crosswalk_busy = "crosswalk_busy.png"
 
+image phone = "PhoneBg.png"
+
 #Side note for including the bouncer!!!!! Use xzoom 0.54 yzoom 0.54
 
 image bouncer = "bouncer.png"
@@ -155,9 +157,15 @@ screen time_meter():
 #label phone:
 
 label start:
-    scene phone
+    stop music
+    scene phone:
+        xzoom 0.85
+        yzoom 0.85
     play music "sounds/BgMusic.mp3"
     hide screen time_meter
+    jump choosing_start
+
+label choosing_start:
 
     #Norman's variables (some are being reset after each start, hence the $)
     default wetclothes = False
@@ -318,6 +326,6 @@ menu:
         t "To get to your date on time, make each choice with care- using your sense of logic to the best of your ability as some choices will cost you more time than others!"
         t "Though, not always will the most logical, or efficient, option be as apparent as you may wish!"
         t "But don't worry! I'll be with you on your journey! Helping lots and lots... for sure..."
-        jump start
+        jump choosing_start
 
 return

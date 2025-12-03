@@ -2,6 +2,7 @@
 
 label velvet:
     stop music fadeout 3.0
+    play music "sounds/VelvetBgMusic.mp3" volume 0.1
     $ max_time = 15
     $ time = 15
 
@@ -86,6 +87,7 @@ hide velvet_neutral
 show velvet_angry:
     xzoom 0.5 yzoom 0.5
 v "Y'know what? I'll just go, actually. No point in trying to have a conversation if you're gonna be a creep."
+stop music
 jump start
 
 label postive:
@@ -103,6 +105,7 @@ menu:
         show velvet_angry:
             xzoom 0.5 yzoom 0.5
         v "Well SORRY if that's an issue. Hmph! I can just go--you CLEARLY have no taste. Sorry, but not sorry."
+        stop music
         jump start
     "HEY! HEY YOU!":
         jump HEY!
@@ -131,6 +134,7 @@ label velvetdate:
     
     t "And so, you and this tiefling agree to meet up another time, in another land."
 
+    stop music
     jump start
 
 label intoDNDfail:
@@ -179,6 +183,7 @@ menu:
         hide velvet_happy
         show velvet_shocked:
             xzoom 0.5 yzoom 0.5
+        stop music
         jump start
 
 label negativeF:
@@ -186,6 +191,7 @@ label negativeF:
         xzoom 0.5 yzoom 0.5
     t "Her expression turns sour and her tone loses its warmth."
     v "I don't mind awkward dates, but I don't put up with a rude ones."
+    stop music
     jump start
 
 return

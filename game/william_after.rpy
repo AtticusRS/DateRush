@@ -8,6 +8,7 @@ screen william_timer:
 
 label william_after:
     stop music fadeout 3.0
+    queue music "sounds/WilliamBgMusic.mp3" volume 0.1
     scene streetside
     "You click on the finely aged man's profile"
     "*Bzzzt bzzzt*"
@@ -458,6 +459,7 @@ label limominigame:
     show screen countdown
     menu:
         "Stop at this red building with gold accents that's... short?":
+            hide screen countdown
             $ time = time - 5
             t "Noo, that's wrong!"
             jump limominigame2
@@ -474,6 +476,7 @@ label limominigame2:
     show screen countdown
     menu:
         "Stop at this red building with gold accents that's... tall?":
+            hide screen countdown
             t "Yes! You've found it!"
             jump williamlimo2
         "Next building please!":
@@ -489,6 +492,7 @@ label limominigame3:
     show screen countdown
     menu:
         "Stop at this blue building with gold accents that's... tall!":
+            hide screen countdown
             $ time = time - 5
             t "Noo, that's wrong!"
             jump limominigame

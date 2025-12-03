@@ -4,6 +4,7 @@
 
 label jessi:
     stop music fadeout 3.0
+    play music "sounds/JessiBgMusic.mp3" volume 0.1
     $ time = 15
     $ max_time = 15
     
@@ -38,6 +39,7 @@ menu:
         jump bouncertime
     "Skip out on the date":
         t "Just like that? A whiff of danger and you left? Well, I guess not all of us can be brave."
+        stop music
         jump start
 
 #Bouncer waisting more time!
@@ -96,6 +98,7 @@ label bouncerconvo:
         "Bribe":
             b "You have no damn idea who you're talking to. Gangs treat loyalty as gold-- I ain't giving this shit up."
             t "The large man cracks his knuckles and stares you down. Perhaps its better to leave without a hospital bill this time."
+            stop music
             jump start
         "The password is absolutely Worsheshire.":
             $ time = time - 5
@@ -112,6 +115,7 @@ label Eenter:
     menu:
         "Give up":
             t "..Well I suppose I can't blame you."
+            stop music
             jump start
         "Think of another way in":
             t "You stand beside the bar, thinking of your"
@@ -146,6 +150,7 @@ t "You made it! With about [time] minute(s) left too!"
 menu:
     "Go up to Jessi":
         t "As you walk toward your date, doubts fill your mind. Afterall, what about you should she even be impressed with? ..Maybe its best to do this another day."
+        stop music
         jump start
     "Blend in":
         t "Pulling all your previous theater knowledge, you swagger into the bar. Taking a look around before settling in the seat beside your date."
@@ -164,6 +169,7 @@ menu:
         j "A drinking game? You think you can outdo me? Well I won't say no to winning."
         t "She's right. It doesnt take long until you hardly could remember your name. Let alone function on a date."
         t "Maybe it's time to call an Ewber."
+        stop music
         jump start
     "Strike a coversation":
         t "She snickered at the question."
@@ -202,9 +208,11 @@ label jessiquestion:
     menu:
             "Absolutely.":
                 $ datedjessi = True
+                stop music
                 jump start
             "I'll pass.":
                 j "Suit yourself."
+                stop music
                 jump start
 
 
@@ -218,6 +226,7 @@ label jname:
                 xzoom 0.4
             t "She cackles at that answer. It takes a moment for her to regain her breath."
             j "DUDE. OUT OF ALL- Oh my GAWD. Out of EVERYONE you name some rich dude! Wow. Alright poser, it's been fun, but I ain't exactly here for money."
+            stop music
             jump start
         "..Yeah... Fine. I'm a normal person on an adventure.":
             jump jessicontinue
