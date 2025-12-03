@@ -2,6 +2,7 @@
 
 label norman:
     stop music fadeout 3.0
+    queue music "sounds/NormanBgMusic.mp3"
     $ time = 20
     $ max_time = 20
 
@@ -101,6 +102,7 @@ label normanbar:
             $ time = time - 25
             t "That's... an option too."
             "You then drank yourself into oblivion. Hopefully you're of drinking age."
+            stop music
             jump start
 
 #This is the route where you take the taxi
@@ -213,7 +215,7 @@ label normantaxi2:
             scene streetside
             "The driver speedily ejects you from the vehicle"
             t "What- what just happened?"
-            t "How are we back at the start- how-"
+            t "How are we back at the beginning- how-"
             t "Well maybe that was one question too many."
             t "How will we get to Norman now???"
             jump norman
@@ -362,6 +364,7 @@ label norman_predate:
                 else:
                     pass
                 t "I'm sorry, you'll have to try again."
+                stop music
                 jump start
             else:
                 pass
@@ -429,6 +432,7 @@ label normandate_normal:
                             n "Alright well this is obviously not working out."
                             n "Goodbye! No, not 'good'-bye, just bye!"
                             t "Who are you??"
+                            stop music
                             jump start
                         "I don't think I can afford the amount of clothes you'd need to fix your style...":
                             hide norman_shocked
@@ -442,10 +446,12 @@ label normandate_normal:
                             n "Goodbye! No no, not 'good'-bye, just bye!"
                             t "Who are you??"
                             hide norman_angry
+                            stop music
                             jump start
                 "You're right, sorry! Joke was a little out of hand there...":
                     n "That's alright! The first step to being a better person is acknowledging your mistakes!"
                     n "Seeing that you are aware of a small slip-up, I foresee maturity within you!"
+    stop music
     jump start
 
 label normandate_wetclothes:
@@ -488,6 +494,7 @@ label normandate_wetclothes:
         "Well you charmer!!":
             n "Oh gosh! I'm just being polite you know!"
             pass
+    stop music
     jump start
 
 return

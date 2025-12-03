@@ -51,6 +51,7 @@ label narrator:
             $ datednarrator = True
             t "Your answer provides me reassurance through truth. This is enough for me too."
             t "Here's my number :)"
+            stop music
             jump start
 
     #I think I'm losing it. No... I'm sure I'm losing it
