@@ -6,7 +6,9 @@ label catrat:
     $ time = time - 2
     show rat at left
     t "Well, would you look at that!"
+    $ time = time - 1
     t "It's a rat in an alley way... how queer!"
+    $ time = time - 1
     t "Oh? It seems that the rat has a visitor... that is a cat?"
     hide rat
     show ratsee at left with dissolve
@@ -19,13 +21,16 @@ label catrat:
             $ time = time - 2
             jump crimealley
         "Just wait a little longer...":
+            $ time = time - 1
             t "I see... you're going to waste precious time... again."
+            $ time = time - 0.5
 
             hide catsneaky with dissolve
             show catsneaky at center with dissolve:
                 yalign 1
 
             t "The cat is sneaking up on the rat, surely you don't want to see the next part where-"
+            $ time = time - 0.5
 
             hide catsneaky
             show catflowers at center with dissolve:
@@ -35,11 +40,13 @@ label catrat:
             show ratwow at left with dissolve
 
             t "The cat pulls out flowers for the rat??"
+            $ time = time - 0.5
 
             hide ratwow
             show ratlove at left with dissolve
 
             c "Meow meow!!"
+            $ time = time - 0.5
             r "Sqeuak squeak!!!"
             t "This, I can't help but admire! It is truly adorable."
             t "Doesn't their love remind you of something? Perhaps your own pursuit of a love interest? Hm?"
