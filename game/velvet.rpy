@@ -108,9 +108,9 @@ menu:
         stop music
         jump start
     "HEY! HEY YOU!":
-        jump HEY!
+        jump HEY
 
-label HEY!
+label HEY:
 e "YEAH! YOU! I HAVE A FEW WORDS FOR YOU!"
 t "Oh not this nuisance. Really its best to igno-"
 e "OI! I have the talking stick. ME!"
