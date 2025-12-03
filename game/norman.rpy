@@ -311,7 +311,7 @@ label continuestreet:
         t "But you also don't have that much money, can you afford it?"
         menu:
             "Yea let me buy something" if moneyspent == False:
-                $ time = time + 10
+                $ time = time + 5
                 $ moneyspent = True
                 "You buy yourself a snack and become motivated! (Gain 10 minutes)"
                 t "Delicious!"
