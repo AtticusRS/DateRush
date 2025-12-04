@@ -46,7 +46,7 @@ image cafe = "cafe.png"
 image bathroom = "bathroom.png"
 
 image diner = "fancydiner.png"
-image outsidediner = "fancydiner_outside"
+image outsidediner = "bar_frontoutside_2.png"
 image fancydinertable = "fancydiner_table"
 
 image incar = "inside of car.png"
@@ -281,7 +281,7 @@ menu:
         menu:
             "Yes":
                 hide norman_happy
-                jump norman
+                jump norman_start
             "No thanks":
                 hide norman_happy
                 jump start

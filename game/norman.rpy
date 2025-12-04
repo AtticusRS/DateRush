@@ -1,10 +1,13 @@
 #This file follows the route of Norman
 
-label norman:
+label norman_start:
     stop music fadeout 3.0
     queue music "sounds/NormanBgMusic.mp3"
     $ time = 20
     $ max_time = 20
+    jump norman
+
+label norman:
 
     scene streetside
     if calledtaxi == False:    
@@ -208,7 +211,7 @@ label normantaxi2:
             t "If you're fine with this, I'm fine with this."
             $ time = time - 5
             "You arrive at the Cafe slowly, but faster than you would've if you hadn't asked"
-            jump norman_preadate
+            jump norman_predate
     menu:
         "How about going just a little faster, Driver?":
             $ time = time - 1
