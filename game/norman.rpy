@@ -5,6 +5,7 @@ label norman_start:
     queue music "sounds/NormanBgMusic.mp3"
     $ time = 20
     $ max_time = 20
+    jump norman
 
 label norman:
 
