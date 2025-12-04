@@ -78,8 +78,7 @@ menu:
             t "Strangly though, neither are the populaur subject among these strangers."
             t "Happy voices of a new couple, a cat and a rat, seem to hold peoples attention more than any other fantastical beast."
             $ time = time - 5
-
-
+            jump datefailV
 
 
 label datefailV:
@@ -87,10 +86,31 @@ hide velvet_neutral
 show velvet_angry:
     xzoom 0.5 yzoom 0.5
 v "Y'know what? I'll just go, actually. No point in trying to have a conversation if you're gonna be a creep."
+menu:
+    "Apologize quickly!":
+        jump neutralv
+    "Let her go":
+        jump start
+
+label neutralv:
+    hide velvet_angry
+    show velvet_neutral:
+        xzoom 0.5 yzoom 0.5
+v "Fine. One more try."
+menu:
+    "Make small talk":
+        jump postive
+    "Ask about her horns":
+        jump negativeF
+
+
 stop music
 jump start
 
 label postive:
+    hide velvet_neutral
+    show velvet_happy:
+        xzoom 0.5 yzoom 0.5
 menu:
     "William? That one rich dude?":
         hide velvet_neutral
