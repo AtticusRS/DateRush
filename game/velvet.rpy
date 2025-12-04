@@ -149,6 +149,8 @@ menu:
         show velvet_angry
         $ time - 15
         
+#DATED VELVET LABEL
+
 label velvetdate:
     $ datedvelvet = True
     
